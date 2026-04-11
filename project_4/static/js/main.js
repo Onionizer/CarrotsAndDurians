@@ -45,32 +45,32 @@ const emptyExpression = "&nbsp;";
 //     updateDisplay();
 // }
 
-function pressDivide() {
-    // this should be &divide;?
-    expression = expression + '/';
-    // expression += '\u00F7';
-    // expression = expression + '&divide;';
-    // both work for display, but not for eval.  Prob easier to 
-    // oh there's displayedExpression.
-    console.log('Divider was pressed. New expression:', expression);
-    updateDisplay();
-}
-function pressTimes() {
-    // should this be x?  In the video, it's x.
-    expression = expression + '*';  
-    console.log('Times was pressed. New expression:', expression);
-    updateDisplay();
-}
-function pressMinus() {
-    expression = expression + '-';
-    console.log('Minus was pressed. New expression:', expression);
-    updateDisplay();
-}
-function pressPlus() {
-    expression = expression + '+';
-    console.log('Plus was pressed. New expression:', expression);
-    updateDisplay();
-}
+// function pressDivide() {
+//     // this should be &divide;?
+//     expression = expression + '/';
+//     // expression += '\u00F7';
+//     // expression = expression + '&divide;';
+//     // both work for display, but not for eval.  Prob easier to 
+//     // oh there's displayedExpression.
+//     console.log('Divider was pressed. New expression:', expression);
+//     updateDisplay();
+// }
+// function pressTimes() {
+//     // should this be x?  In the video, it's x.
+//     expression = expression + '*';  
+//     console.log('Times was pressed. New expression:', expression);
+//     updateDisplay();
+// }
+// function pressMinus() {
+//     expression = expression + '-';
+//     console.log('Minus was pressed. New expression:', expression);
+//     updateDisplay();
+// }
+// function pressPlus() {
+//     expression = expression + '+';
+//     console.log('Plus was pressed. New expression:', expression);
+//     updateDisplay();
+// }
 
 
 /* ***************************************** */
@@ -98,10 +98,16 @@ function backspace() {
         let lastChar = displayedExpression.at(-1);
         displayedExpression = _removeLastCharacters(displayedExpression, 1);
 
-        if (lastChar === '²') {
+        if (lastChar === '²' || lastChar === '³') {
             expression = _removeLastCharacters(expression, 3);
-        } else if (lastChar === '³') {
-            expression = _removeLastCharacters(expression, 3);
+            // TODO: handle % here? 
+        } else if (lastChar === '%') {
+            expression = _removeLastCharacters(expression, 4);  // remove '/100'
+        } else if (lastChar === '‰') {
+            expression = _removeLastCharacters(expression, 6);  // remove '/10000' (should this be /1000?)
+        } else {
+            // all other cases
+            expression = _removeLastCharacters(expression, 1);
         }
 
         console.log('Removed', lastChar, ', new displayedExpression:', displayedExpression, ', new expression:', expression);
@@ -172,7 +178,17 @@ function loadResult() {
    Appends the current expression to the "receipt" below the calculator
 */
 function addToReceipt() {
-
+    if (result === null) {
+        // first time running - just update with text
+        let receiptDiv = document.querySelector('#receipt_contents')
+        receiptDiv.innerHTML = receipt;
+    } else {
+        let receiptDiv = document.querySelector('#receipt_contents')
+        // maybe p tag?  there's a <br>.   append <br>
+        receipt += displayedExpression + ' = ' + result  + '<br>';
+        // receipt += expression + ' = ' + eval(expression) + '<br>';   // this causes undefined at the start
+        receiptDiv.innerHTML = receipt;
+    }
 
 
     // if (expression === '') {
@@ -193,15 +209,7 @@ function addToReceipt() {
     //     receiptDiv.innerHTML = receipt;
     // }
 
-        // add this to 
-    let receiptDiv = document.querySelector('#receipt_contents')
-    // DONE: Fill this in!
-    // maybe p tag?  there's a <br>.  So append <br>
 
-
-    // receipt += expression + ' = ' + eval(expression) + '<br>';   // this causes undefined at the start
-    receipt += expression + '<br>';
-    receiptDiv.innerHTML = receipt;
 
 }
 
