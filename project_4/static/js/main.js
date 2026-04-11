@@ -1,48 +1,50 @@
 console.log("Loaded main.js")
 
+const emptyExpression = "&nbsp;";
+
 // Note: Two basic functions are here for you to examine.
 // Open the Console to see the results.
-function pressZero() {
-    typeSymbol('0');
-}
-function pressOne() {
-    typeSymbol('1');
-}
-function pressTwo() {
-    typeSymbol('2');
-}
-function pressThree() {
-    typeSymbol('3');
-}
-function pressFour() {
-    typeSymbol('4');
-}
-function pressFive() {
-    typeSymbol('5');
-}
-function pressSix() {
-    typeSymbol('6');    // can just call typeSymbol? on click?
-}
-function pressSeven() {
-    expression = expression + '7';
-    console.log('7 was pressed. New expression:', expression);
-    updateDisplay();
-}
-function pressEight() {
-    expression = expression + '8';
-    console.log('8 was pressed. New expression:', expression);
-    updateDisplay();
-}
-function pressNine() {
-    expression = expression + '9';
-    console.log('Nine was pressed. New expression:', expression);
-    updateDisplay();
-}
+// function pressZero() {
+//     typeSymbol('0');
+// }
+// function pressOne() {
+//     typeSymbol('1');
+// }
+// function pressTwo() {
+//     typeSymbol('2');
+// }
+// function pressThree() {
+//     typeSymbol('3');
+// }
+// function pressFour() {
+//     typeSymbol('4');
+// }
+// function pressFive() {
+//     typeSymbol('5');
+// }
+// function pressSix() {
+//     typeSymbol('6');    // can just call typeSymbol? on click?
+// }
+// function pressSeven() {
+//     expression = expression + '7';
+//     console.log('7 was pressed. New expression:', expression);
+//     updateDisplay();
+// }
+// function pressEight() {
+//     expression = expression + '8';
+//     console.log('8 was pressed. New expression:', expression);
+//     updateDisplay();
+// }
+// function pressNine() {
+//     expression = expression + '9';
+//     console.log('Nine was pressed. New expression:', expression);
+//     updateDisplay();
+// }
 
-function pressDecimal() {
-    expression += '.';
-    updateDisplay();
-}
+// function pressDecimal() {
+//     expression += '.';
+//     updateDisplay();
+// }
 
 
 
@@ -104,7 +106,7 @@ function backspace() {
 */
 function clearExpression() {
     // TODO: Fill this in!
-    expression = "";
+    expression = emptyExpression;
     updateDisplay();
     console.log('Cleared expression');
 }
@@ -115,7 +117,11 @@ function clearExpression() {
 function typeSymbol(symbol) {
     // TODO: Fill this in!
     // isn't this just done as is as a helper function? other than just console.log
-    expression = expression + symbol;
+    if (expression === emptyExpression) {
+        expression = symbol;    // don't keep the nbsp
+    } else {
+        expression = expression + symbol;
+    }
     console.log(symbol, 'was pressed. New expression:', expression);
     updateDisplay();
 }
