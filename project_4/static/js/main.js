@@ -84,15 +84,19 @@ function updateDisplay() {
     let displayDiv = document.querySelector('#display')
     // Hint: Will eventually need changes!
     displayDiv.innerHTML = displayedExpression;
+    showError(emptyExpression); // Clear out error message.
 }
 
 /*
    Deletes the last typed character
 */
 function backspace() {
-    
     if (expression === "") {
         // No op?
+        if (displayedExpression !== emptyExpression) {
+            console.log('expression is empty but displayedExpression is:', displayedExpression);
+            throw new Error('expression is empty but displayedExpression is:' + displayedExpression);
+        }
         console.log('backspace - expression is empty, so no op');
     } else {
         let lastChar = displayedExpression.at(-1);
@@ -104,7 +108,8 @@ function backspace() {
         } else if (lastChar === '%') {
             expression = _removeLastCharacters(expression, 4);  // remove '/100'
         } else if (lastChar === '‰') {
-            expression = _removeLastCharacters(expression, 6);  // remove '/10000' (should this be /1000?)
+            // remove '/1000' -> 5 chars. Going with per mille here.  
+            expression = _removeLastCharacters(expression, 5);  
         } else {
             // all other cases
             expression = _removeLastCharacters(expression, 1);
@@ -130,7 +135,7 @@ function clearExpression() {
 */
 function typeSymbol(symbol) {
     if (expression === emptyExpression) {
-        expression = symbol;    // don't keep the nbsp
+        expression = symbol;    // overwrite, not append; don't keep the nbsp
         displayedExpression = symbol;
     } else {
         expression += symbol;
@@ -145,7 +150,7 @@ function typeSymbol(symbol) {
 */
 function typeSpecialSymbol(symbol, label) {
     if (expression === emptyExpression) {
-        expression = symbol;
+        expression = symbol;    // overwrite, not append; don't keep the nbsp
         displayedExpression = label;
     } else {
         expression += symbol;
@@ -179,7 +184,7 @@ function loadResult() {
 */
 function addToReceipt() {
     if (result === null) {
-        // first time running - just update with text
+        // first time running - just update with starting text
         let receiptDiv = document.querySelector('#receipt_contents')
         receiptDiv.innerHTML = receipt;
     } else {
@@ -189,36 +194,17 @@ function addToReceipt() {
         // receipt += expression + ' = ' + eval(expression) + '<br>';   // this causes undefined at the start
         receiptDiv.innerHTML = receipt;
     }
-
-
-    // if (expression === '') {
-    //     // If expression is empty, or invalid, then no op
-    //     console.log('Expression is empty; no op');
-    // } else {
-    //     try {
-    //         eval_result = eval(expression)
-    //     } catch (e) {
-    //         console.log('Error occured:', e);
-    //     }
-
-    //     // add this to 
-    //     let receiptDiv = document.querySelector('#receipt_contents')
-    //     // DONE: Fill this in!
-    //     // maybe p tag?  there's a <br>.  So append <br>
-    //     receipt += expression + ' = ' + eval(expression) + '<br>';
-    //     receiptDiv.innerHTML = receipt;
-    // }
-
-
-
 }
 
 /*
    Display error message to screen
 */
 function showError(message) {
-    // TODO: Fill this in!
-    // error mesage
+    // <div class="Receipt Receipt--error" id="error">&nbsp;</div>
+    // Should this be cleared on a successful computation? Can handle in updateDisplay
+    // From the video, it looks like it's getting cleared on backspace, so clear on display
+    let errorDiv = document.querySelector('#error')
+    errorDiv.innerHTML = message;
 }
 
 addToReceipt(); // Call right away to show the default message
