@@ -40,21 +40,24 @@ const emptyExpression = "&nbsp;";
 //     console.log('Nine was pressed. New expression:', expression);
 //     updateDisplay();
 // }
-
 // function pressDecimal() {
 //     expression += '.';
 //     updateDisplay();
 // }
 
-
-
 function pressDivide() {
+    // this should be &divide;?
     expression = expression + '/';
+    // expression += '\u00F7';
+    // expression = expression + '&divide;';
+    // both work for display, but not for eval.  Prob easier to 
+    // oh there's displayedExpression.
     console.log('Divider was pressed. New expression:', expression);
     updateDisplay();
 }
 function pressTimes() {
-    expression = expression + '*';
+    // should this be x?  In the video, it's x.
+    expression = expression + '*';  
     console.log('Times was pressed. New expression:', expression);
     updateDisplay();
 }
@@ -80,24 +83,29 @@ function pressPlus() {
 function updateDisplay() {
     let displayDiv = document.querySelector('#display')
     // Hint: Will eventually need changes!
-    displayDiv.innerHTML = expression;
+    displayDiv.innerHTML = displayedExpression;
 }
 
 /*
    Deletes the last typed character
 */
 function backspace() {
-    // TODO: Fill this in! - done?
+    
     if (expression === "") {
         // No op?
         console.log('backspace - expression is empty, so no op');
     } else {
-        // delete the last character
-        expression = _removeLastCharacters(expression, 1);
-        console.log('backspace - removed 1 char');
+        let lastChar = displayedExpression.at(-1);
+        displayedExpression = _removeLastCharacters(displayedExpression, 1);
 
-        // the display seems to shrink/narrow down. Do I need to fix that? 
-    }
+        if (lastChar === '²') {
+            expression = _removeLastCharacters(expression, 3);
+        } else if (lastChar === '³') {
+            expression = _removeLastCharacters(expression, 3);
+        }
+
+        console.log('Removed', lastChar, ', new displayedExpression:', displayedExpression, ', new expression:', expression);
+    }   
     updateDisplay();
 }
 
@@ -105,8 +113,8 @@ function backspace() {
    Clears what's typed
 */
 function clearExpression() {
-    // TODO: Fill this in!
-    expression = emptyExpression;
+    expression = "";
+    displayedExpression = emptyExpression;
     updateDisplay();
     console.log('Cleared expression');
 }
@@ -115,14 +123,14 @@ function clearExpression() {
    Adds one symbol to the expression
 */
 function typeSymbol(symbol) {
-    // TODO: Fill this in!
-    // isn't this just done as is as a helper function? other than just console.log
     if (expression === emptyExpression) {
         expression = symbol;    // don't keep the nbsp
+        displayedExpression = symbol;
     } else {
-        expression = expression + symbol;
+        expression += symbol;
+        displayedExpression += symbol;
     }
-    console.log(symbol, 'was pressed. New expression:', expression);
+    console.log(symbol, 'was pressed. New expression:', expression, 'displayedExpression:', displayedExpression);
     updateDisplay();
 }
 
@@ -130,9 +138,22 @@ function typeSymbol(symbol) {
    Adds one symbol to the expression, but with a different user-visible label
 */
 function typeSpecialSymbol(symbol, label) {
-    // handle square, cube
+    if (expression === emptyExpression) {
+        expression = symbol;
+        displayedExpression = label;
+    } else {
+        expression += symbol;
+        displayedExpression += label;
+    }
 
-    // TODO: Fill this in!
+
+
+    //   Superscript? 
+    // handle squared: \u00B2
+    //  cubed: \u00B3
+
+
+    console.log(symbol, 'was pressed. New expression:', expression);
     updateDisplay();
 }
 
@@ -152,6 +173,9 @@ function loadResult() {
    Appends the current expression to the "receipt" below the calculator
 */
 function addToReceipt() {
+
+
+
     // if (expression === '') {
     //     // If expression is empty, or invalid, then no op
     //     console.log('Expression is empty; no op');
@@ -187,6 +211,7 @@ function addToReceipt() {
 */
 function showError(message) {
     // TODO: Fill this in!
+    // error mesage
 }
 
 addToReceipt(); // Call right away to show the default message
