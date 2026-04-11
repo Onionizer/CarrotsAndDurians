@@ -146,14 +146,7 @@ function typeSpecialSymbol(symbol, label) {
         displayedExpression += label;
     }
 
-
-
-    //   Superscript? 
-    // handle squared: \u00B2
-    //  cubed: \u00B3
-
-
-    console.log(symbol, 'was pressed. New expression:', expression);
+    console.log(symbol, 'was pressed. New expression:', expression, ', new displayExpression:', displayedExpression);
     updateDisplay();
 }
 
@@ -161,11 +154,17 @@ function typeSpecialSymbol(symbol, label) {
    Loads the numeric result of the last computation into the expression
 */
 function loadResult() {
-    // TODO: Fill this in!
-    // can get the last of the receipt
-    // split by <br/> and 
-    // and then assign to expression
-    // then update display?
+    // numeric result, so the result is either a number or null at start
+    if (result === null) {
+        // result is null -> no op? or load empty? 
+        // assume no op for now
+        console.log('No result to load; no op');
+    } else {
+        // numeric so just set both to 
+        expression = displayedExpression = result;
+        updateDisplay();
+        console.log('Loaded result:', result);
+    }
 }
 
 
