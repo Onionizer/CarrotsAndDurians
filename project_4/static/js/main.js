@@ -108,8 +108,8 @@ function backspace() {
         } else if (lastChar === '%') {
             expression = _removeLastCharacters(expression, 4);  // remove '/100'
         } else if (lastChar === '‰') {
-            // remove '/1000' -> 5 chars. Going with per mille here.  
-            expression = _removeLastCharacters(expression, 5);  
+            // remove '/10000' -> 6 chars. Going with per mille here.  
+            expression = _removeLastCharacters(expression, 6);  
         } else {
             // all other cases
             expression = _removeLastCharacters(expression, 1);
