@@ -22,6 +22,7 @@ function getMatchingButtons(numberButton) {
         if (nextButton) { // A button was added to this next cell...
             let nextButtonValue = nextButton.getAttribute('data-value');
             if (nextButtonValue === myValue) {
+                // console.log('Merging with RIGHT cell of value ', nextButtonValue);
                 buttons.push(nextButton); // Add it to the Array
             }
         }
@@ -40,7 +41,7 @@ function getMatchingButtons(numberButton) {
         if (prevButton) {
             let prevButtonValue = prevButton.getAttribute('data-value');
             if (prevButtonValue === myValue) {
-                console.log('Merging with LEFT cell of value ', prevButtonValue);
+                // console.log('Merging with LEFT cell of value ', prevButtonValue);
                 buttons.push(prevButton); // Add it to the Array
             }
         }
@@ -55,7 +56,7 @@ function getMatchingButtons(numberButton) {
         if (aboveButton) { // there's a button, so check value
             let aboveButtonValue = aboveButton.getAttribute('data-value');
             if (aboveButtonValue === myValue) {
-                console.log('Merging with ABOVE cell of value ', aboveButtonValue);
+                // console.log('Merging with ABOVE cell of value ', aboveButtonValue);
                 buttons.push(aboveButton);
             }
         }
@@ -69,7 +70,7 @@ function getMatchingButtons(numberButton) {
         if (belowButton) { // there's a button, so check value
             let belowButtonValue = belowButton.getAttribute('data-value');
             if (belowButtonValue === myValue) {
-                console.log('Merging with BELOW cell of value ', belowButtonValue);
+                // console.log('Merging with BELOW cell of value ', belowButtonValue);
                 buttons.push(belowButton);
             }
         }
@@ -79,9 +80,13 @@ function getMatchingButtons(numberButton) {
     return buttons;
 
     // Why is "merging with ..." message printed twice on click?
+    // it's called on both click and mouseover?
 };
 
 function setupNumberButton(numberButton) {
+    // can't I refactor to have getMatchingButtons here?
+    // oh maybe not, if the neighbors change - it needs to be determined on event.
+
     numberButton.addEventListener('click', function () {
         let buttons = getMatchingButtons(numberButton);
         console.log(buttons);
@@ -106,7 +111,13 @@ function setupNumberButton(numberButton) {
         let buttons = getMatchingButtons(numberButton);
         // TODO: Complete this 
         // Hint: Similar to click, but only add the class Tile--highlight to the button's parent element
+        
+        for (let matchingNeighborButton of buttons) {
+            // how do I get IDE to suggest classList property?
+            tileTD = matchingNeighborButton.parentNode;
+            tileTD.classList.add('Tile--highlight');
 
+        }
 
 
 
@@ -116,8 +127,16 @@ function setupNumberButton(numberButton) {
 
     // TODO: Add another event for mouseleave
     // Hint: Similar to mouseover, but removing
+    numberButton.addEventListener('mouseleave', function () {
+        let buttons = getMatchingButtons(numberButton);
+        // TODO: Complete this 
+        // Hint: Similar to click, but only add the class Tile--highlight to the button's parent element
+        for (let matchingNeighborButton of buttons) {
 
-
+            tileTD = matchingNeighborButton.parentNode;
+            tileTD.classList.remove('Tile--highlight');
+        }
+    });
 
 
 
