@@ -1,0 +1,81 @@
+Already read the "main_with_hints_added.js" file, and feel you could use even more hints?
+Then read below for even more hints on how to use the structure suggested.
+
+- getMatchingButtons HINT 1: The goal for getMatchingButtons is a function that is called
+  with a "numberButton" element, and then returns an array of all matching buttons nearby.
+  This array will be length 0-4, since it will only check for top, left, right, and table cells.
+  Then, the outer code can use that array to either delete and combine (for click) or to
+  add classes (for mouse hover).
+
+- getMatchingButtons HINT 2: To get the item above and below, you'll
+  likely need the index of the column that we are in:
+    let myIndex = Array.from(myTR.children).indexOf(myTD); // what "column" we are in
+
+- mouse highlight Hint 1: All three events will be similar in structure (click, mouseover, mouseleave)
+
+- mouse highlight Hint 2: Similar to click, but only add the class Tile--highlight to
+  the button's parent element. Example code:
+  	.parentNode
+  	.classList.add('Tile--highlight')
+	
+
+
+
+- renderGame / DOM HINT: The already finished JavaScript generates an HTML
+  (DOM) structure something like the following:
+
+
+            <button onclick="onNextClick()">NEXT 1s</button>
+            <span id="next_count"></span>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                    </tr>
+                    <tr>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                    </tr>
+                    <tr>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                    </tr>
+                    <tr>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                    </tr>
+                    <tr>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                    </tr>
+                    <tr>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                        <td class="Tile"></td>
+                    </tr>
+                </tbody>
+            </table>
