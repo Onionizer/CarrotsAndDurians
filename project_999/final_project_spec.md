@@ -18,7 +18,7 @@ Myself!
 1. As a user who has received money from riders or has deposited money, I want to withdraw the money or deposit more fund.
     * Connecting bank sounds like way too complicated.  I'm hoping to emulate it with just buttons that will add or remove fund on the account.
 
-1. As a user, I want to save home and work addresses and have the commute 
+1. As a user, I want to save home and work addresses and have the Carpool Coordinate show me the route on my profile visually.
 
 ## ACCEPTANCE CRITERIA
 * The user can go to profile page and set home address and work address.  If both are set, the user will be able to view a Google Map-like view of the route.
