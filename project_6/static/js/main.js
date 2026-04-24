@@ -94,42 +94,42 @@ function setupNumberButton(numberButton) {
             // This means there are at least 2 other matching buttons, thus 3 total,
             // and we have a match.
             console.log('We have a MATCH!')
-            // TODO: Complete this 
+            // done?: Complete this 
 
-     
-     
-     
-     
-     
-     
-     
+            // update the number button's value
+            // get the new value: current value * (1 + num matching buttons)
+            let currValue = numberButton.getAttribute('data-value');
+            let newValue = currValue * (1 + buttons.length);
+            numberButton.setAttribute('data-value', newValue);
+            numberButton.textContent = newValue;
+            // Is there a reason to just not use the text value?
+            // console.log('Setting new value to ', newValue);
+
+            for (let matchingNeighborButton of buttons) {
+                tileTD = matchingNeighborButton.parentNode;
+                tileTD.classList.remove('Tile--highlight');
+                tileTD.innerHTML = '&nbsp;';
+            }
         }
     });
 
     numberButton.addEventListener('mouseover', function () {
         // This means the user "hovered" or moved their mouse over
         let buttons = getMatchingButtons(numberButton);
-        // TODO: Complete this 
+        // done?: Complete this 
         // Hint: Similar to click, but only add the class Tile--highlight to the button's parent element
         
         for (let matchingNeighborButton of buttons) {
             // how do I get IDE to suggest classList property?
             tileTD = matchingNeighborButton.parentNode;
             tileTD.classList.add('Tile--highlight');
-
         }
-
-
-
-
-
     });
 
-    // TODO: Add another event for mouseleave
+    // done?: Add another event for mouseleave
     // Hint: Similar to mouseover, but removing
     numberButton.addEventListener('mouseleave', function () {
         let buttons = getMatchingButtons(numberButton);
-        // TODO: Complete this 
         // Hint: Similar to click, but only add the class Tile--highlight to the button's parent element
         for (let matchingNeighborButton of buttons) {
 
@@ -137,12 +137,6 @@ function setupNumberButton(numberButton) {
             tileTD.classList.remove('Tile--highlight');
         }
     });
-
-
-
-
-
-
 
 }
 
