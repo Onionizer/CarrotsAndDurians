@@ -59,7 +59,7 @@ function createBookDiv(book) {
     let singleBookDiv  = document.createElement('div');
     singleBookDiv.classList.add("Books-book");
     singleBookDiv.innerHTML = 
-        `   <img src="http://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" alt="cover">
+        `   <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" alt="cover">
             <div class="Books-book-details">
                 <div class="Books-book-title">${book.title}</div>
                 <strong>Author:</strong> ${book.author_name[0]}<br>
@@ -73,7 +73,7 @@ function createBookDiv(book) {
 
 
 function doFetch() {
-    const url = 'http://openlibrary.org/search.json?q=' + query + '&limit=10&offset=' + page;
+    const url = 'https://openlibrary.org/search.json?q=' + query + '&limit=10&offset=' + page;
     console.log('making query to ', url);
 
     // TODO: Will actually have to do a query
