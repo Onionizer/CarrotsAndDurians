@@ -63,7 +63,7 @@ function createBookDiv(book) {
             <div class="Books-book-details">
                 <div class="Books-book-title">${book.title}</div>
                 <strong>Author:</strong> ${book.author_name[0]}<br>
-                <strong>Language:</strong> dut,jpn,cat,ast,tur,eng,hun,hrv,cze,ita,ind,afr,baq,chi,bul,dan,swe,por,rus,fre,pol,ger,yid,spa<br>
+                <strong>Language:</strong> ${book.language}<br>
                 <strong>Year Published:</strong> ${book.first_publish_year}<br>
             </div>
             `
