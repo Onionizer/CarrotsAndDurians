@@ -72,7 +72,7 @@ function renderProduct(product) {
     
     // TODO: #1 - Accessibility
     // 1a) DONE: Ensure the button below exists in tab (use "tabindex")
-    // 1b) Make sure the two emoji characters below (look for &#....; syntax) are accessible
+    // 1b) DONE: Make sure the two emoji characters below (look for &#....; syntax) are accessible
     // (see "span" around icon in menu button above as example). 
     // btn.innerHTML = 'MENU <span role="img" aria-label="Menu icon">&equiv;</span>';
     // So have the text be in div, and have span be the image? Or just wrap the emoji with span?
