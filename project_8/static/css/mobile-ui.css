@@ -32,7 +32,10 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
     .Products {
         grid-template-columns: 1fr 1fr 1fr;
     }
-    /* TODO: stack nav bar horizontally */
+    /* stack nav bar horizontally */
+    .Navbar {
+        flex-direction: row;
+    }
     /* TODO: hide hamburger menu */
 
 }

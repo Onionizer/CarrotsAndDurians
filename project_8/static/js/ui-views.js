@@ -1,17 +1,32 @@
 // Add your code to this file to solve this assignment!
 
 function renderNavbar() {
-    // Hint: "renderNavbar" is mostly complete, however only 1 button has a tab order
+    // DONE: "renderNavbar" is mostly complete, however only 1 button has a tab order
     let nav = document.querySelector('#navbar');
     let btn;
     
     // Hint: To create a "Hamburger Menu" icon, create a btn like below, then
     // create a toggleHamburger function, and then use the following code:
-    /*
+    btn = document.createElement('div');
     btn.innerHTML = 'MENU <span role="img" aria-label="Menu icon">&equiv;</span>';
-    btn.addEventListener('click', toggleHamburger);
-    */
-    
+    // btn.addEventListener('click', toggleHamburger);
+    btn.setAttribute('role', 'button');
+    // btn.setAttribute('class', 'Navbar-button');
+    btn.classList.add('Navbar-button');
+    btn.classList.add('hamburgerButton');
+    btn.setAttribute('tabindex', '0'); // Should this have tab index? 
+    nav.append(btn);
+    // Do I need to hide this initially?
+
+    // refactored so hamburger toggle can use this?
+    createNavButtons();
+}
+
+
+function createNavButtons() {
+    let nav = document.querySelector('#navbar');
+    let btn;
+
     btn = document.createElement('div');
     btn.setAttribute('role', 'button');
     btn.setAttribute('class', 'Navbar-button');
@@ -26,7 +41,7 @@ function renderNavbar() {
     btn.setAttribute('role', 'button');
     btn.setAttribute('tabindex', '0'); 
     btn.innerHTML = 'View Return Policy';
-    //btn.addEventListener('click', showReturnInfo);
+    btn.addEventListener('click', showReturnInfo);
     nav.append(btn);
 
     btn = document.createElement('div');
@@ -34,10 +49,8 @@ function renderNavbar() {
     btn.setAttribute('role', 'button');
     btn.setAttribute('tabindex', '0'); 
     btn.innerHTML = 'View Shopping Cart';
-    //btn.addEventListener('click', showCart);
+    btn.addEventListener('click', showCart);
     nav.append(btn);
-
-
 }
 
 
@@ -52,21 +65,18 @@ function toggleHamburger() {
 
 
 function renderProduct(product) {
-    console.log("Rendering product images:" + product.images);
+    // console.log("Rendering product images:" + product.images);
 
     let div = document.createElement('div');
     div.setAttribute('class', 'Item'); // Ensure gets 'Item' class
     
     // TODO: #1 - Accessibility
-    // 1a) Ensure the button below exists in tab (use "tabindex")
+    // 1a) DONE: Ensure the button below exists in tab (use "tabindex")
     // 1b) Make sure the two emoji characters below (look for &#....; syntax) are accessible
-    // (see "span" around icon in menu button above as example). Fill in "aria-label" with an 
-    // accessible description of the emoji.
+    // (see "span" around icon in menu button above as example). 
+    // Fill in "aria-label" with an accessible description of the emoji.
 
-    // TODO: #2 - Performance
-    // Switch to use a smaller product image the img tag below (hint: look at API data for another URL)
-    // * Am I supposed to use images[1] or images[2]? 
-    // There's thumbnail URL?
+    // DONE: #2 - Performance: Switch to use a smaller product image the img tag below (hint: look at API data for another URL)
     div.innerHTML = `
         <div class="Item-rating">
             &#11088;
@@ -76,7 +86,7 @@ function renderProduct(product) {
           <img src="${ product.thumbnail }" />  
         </div>
         <div class="Item-details">
-          <div class="Item-button" onclick="addToCart(${ product.price })">
+          <div class="Item-button" tabIndex="0" onclick="addToCart(${ product.price })">
               &#128722;
               \$${ product.price }
           </div>
