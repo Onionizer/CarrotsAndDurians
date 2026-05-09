@@ -90,8 +90,8 @@ function renderProduct(product) {
         </div>
         <div class="Item-details">
           <div class="Item-button" tabIndex="0" onclick="addToCart(${ product.price })">
-              &#128722;
-              \$${ product.price }
+            <span role="img" aria-label="Product Price">&#128722;</span>
+            \$${ product.price }
           </div>
           <div class="Item-title">${ product.title }</div>
           <p class="Item-description">${ product.description }</p>
