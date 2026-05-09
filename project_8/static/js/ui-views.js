@@ -23,12 +23,16 @@ function renderNavbar() {
     // Make sure all the navbar buttons have "role" 'button' and "tabindex" "0"
     btn = document.createElement('div');
     btn.setAttribute('class', 'Navbar-button');
+    btn.setAttribute('role', 'button');
+    btn.setAttribute('tabindex', '0'); 
     btn.innerHTML = 'View Return Policy';
     //btn.addEventListener('click', showReturnInfo);
     nav.append(btn);
 
     btn = document.createElement('div');
     btn.setAttribute('class', 'Navbar-button');
+    btn.setAttribute('role', 'button');
+    btn.setAttribute('tabindex', '0'); 
     btn.innerHTML = 'View Shopping Cart';
     //btn.addEventListener('click', showCart);
     nav.append(btn);
