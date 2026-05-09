@@ -1,0 +1,69 @@
+/*
+
+  TODO: Make the grid show different quantity of items
+  based on the following "breakpoints":
+  
+                  min        max    grid
+  desktop        1100px             4 items
+  large tablet   900px     1100px   3 items
+  small tablet   600px      900px   2 items
+  mobile                    600px   1 item
+  
+*/
+/* 
+Responsive design
+BREAKPOINTS: 1100px (3), 900px (2), 600px (1)
+The application must be responsive, such that the number of items horizontally in the grid changes based on device width (see breakpoints chart below for details)
+The application must have a "hamburger menu" that only appears at "900px wide" (and narrower)
+    > 900px, the navbar should stack buttons horizontally
+        ...and hide hamburger menu (see video)
+    < 900px, the navbar should stack buttons vertically
+        ...and only show all buttons if "hamburger menu" toggled (see video)
+*/
+
+/* This is desktop */
+.Products {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+
+  /* large tablet   900px     1100px   3 items */
+@media (max-width: 1100px) {
+    .Products {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    /* TODO: stack nav bar horizontally */
+    /* TODO: hide hamburger menu */
+
+}
+
+
+  /* small tablet   600px      900px   2 items */
+@media (max-width: 900px) {
+    .Products {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* the navbar should stack buttons vertically */
+    .Navbar {
+        flex-direction: column;
+    }
+
+    /* ...and only show all buttons if "hamburger menu" toggled (see video) */
+
+}
+
+/* Do I need to do hamburger menu here? because it's the  */
+/* Modal-window has already been tweaked to look better on mobile: */
+@media (max-width: 600px) {
+    .Modal-window {
+        /* Prevent text overflow by shrinking font */
+        font-size: 1.4rem;
+        text-align: left;
+        left: 0;
+    }
+}
+
+
+
+/* TODO: Add extra styling, if needed for hamburger menu */
