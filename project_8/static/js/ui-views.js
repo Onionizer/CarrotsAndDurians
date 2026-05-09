@@ -74,12 +74,15 @@ function renderProduct(product) {
     // 1a) DONE: Ensure the button below exists in tab (use "tabindex")
     // 1b) Make sure the two emoji characters below (look for &#....; syntax) are accessible
     // (see "span" around icon in menu button above as example). 
+    // btn.innerHTML = 'MENU <span role="img" aria-label="Menu icon">&equiv;</span>';
+    // So have the text be in div, and have span be the image? Or just wrap the emoji with span?
+
     // Fill in "aria-label" with an accessible description of the emoji.
 
     // DONE: #2 - Performance: Switch to use a smaller product image the img tag below (hint: look at API data for another URL)
     div.innerHTML = `
         <div class="Item-rating">
-            &#11088;
+            <span role="img" aria-label="Product Rating">&#11088;</span>
             ${ product.rating }
         </div>
         <div class="Item-imageWrapper">
