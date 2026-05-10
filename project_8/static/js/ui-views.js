@@ -60,7 +60,7 @@ function createNavButtons() {
 function toggleHamburger() { 
     console.log("Toggling hamburger. . .");
     let welcomeButton = document.querySelector('#welcomeButton');
-    welcomeButton.classList.toggle('Navbar.isHidden');
+    welcomeButton.classList.toggle('isHidden');
 }
 
 
