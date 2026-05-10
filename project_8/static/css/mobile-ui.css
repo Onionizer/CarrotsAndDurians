@@ -29,18 +29,15 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
     display: none;
 }
 
-
   /* large tablet   900px     1100px   3 items */
 @media (max-width: 1100px) {
     .Products {
         grid-template-columns: 1fr 1fr 1fr;
     }
-    /* stack nav bar horizontally */
+    
     .Navbar {
-        flex-direction: row;
+        flex-direction: row;    /* stack nav bar horizontally */
     }
-    /* TODO: hide hamburger menu */
-
 }
 
 
@@ -49,15 +46,16 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
     .Products {
         grid-template-columns: 1fr 1fr;
     }
-
-    /* the navbar should stack buttons vertically */
+    
     .Navbar {
-        flex-direction: column;
+        flex-direction: column;     /* the navbar should stack buttons vertically */
     }
 
     /* ...and only show all buttons if "hamburger menu" toggled (see video) */
     /* Need to show here, and have it hidden by default */
-
+    .hamburgerButton {
+        display: flex;
+    }
 }
 
 /* Do I need to do hamburger menu here? because it's the  */
