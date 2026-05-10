@@ -37,7 +37,7 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
 /* hide when toggled? */
 /* display non vs  opacity */
 /* use transition for smoothness?  video doesn't show */
-.Navbar.isHidden {
+.Navbar .isHidden {
     display: none;
 }
 
