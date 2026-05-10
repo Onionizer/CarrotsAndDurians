@@ -38,10 +38,6 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
     .Products {
         grid-template-columns: 1fr 1fr 1fr;
     }
-
-    .Navbar {
-        flex-direction: column;     /* the navbar should stack buttons vertically */
-    }
 }
 
 
@@ -51,6 +47,9 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
         grid-template-columns: 1fr 1fr;
     }
     
+    .Navbar {
+        flex-direction: column;     /* the navbar should stack buttons vertically */
+    }
 
 
     /* ...and only show all buttons if "hamburger menu" toggled (see video) */
