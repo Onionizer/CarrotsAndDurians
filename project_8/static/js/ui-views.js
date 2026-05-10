@@ -62,7 +62,9 @@ function createNavButtons() {
 function toggleHamburger() { 
     console.log("Toggling hamburger. . .");
     let welcomeButton = document.querySelector('#welcomeButton');
-    welcomeButton.classList.toggle('isHidden');
+    welcomeButton.classList.toggle('isHidden');    
+    console.log("GitHub hello?  one liner for toggling")
+    // document.querySelector('#returnPolicyButton').classList.toggle('isHidden');
     document.querySelector('#returnPolicyButton').classList.toggle('isHidden');
     document.querySelector('#shoppingCartButton').classList.toggle('isHidden');
 }
