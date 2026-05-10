@@ -9,7 +9,7 @@ function renderNavbar() {
     // create a toggleHamburger function, and then use the following code:
     btn = document.createElement('div');
     btn.innerHTML = 'MENU <span role="img" aria-label="Menu icon">&equiv;</span>';
-    // btn.addEventListener('click', toggleHamburger);
+    btn.addEventListener('click', toggleHamburger);
     btn.setAttribute('role', 'button');
     btn.classList.add('Navbar-button');
     btn.classList.add('hamburgerButton');
