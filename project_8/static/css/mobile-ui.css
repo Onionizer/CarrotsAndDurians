@@ -62,7 +62,11 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
 
 /* Do I need to do hamburger menu here? because it's the  */
 /* Modal-window has already been tweaked to look better on mobile: */
-@media (max-width: 600px) {
+@media (max-width: 600px) {      
+    .Products {
+        grid-template-columns: 1fr;     /* mobile                    600px   1 item */
+    }
+
     .Modal-window {
         /* Prevent text overflow by shrinking font */
         font-size: 1.4rem;
