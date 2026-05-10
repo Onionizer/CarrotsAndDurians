@@ -30,7 +30,7 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
 }
 
 .Navbar {
-    flex-direction: column;    /* stack nav bar horizontally */
+    flex-direction: row;    /* stack nav bar horizontally */
 }
 
   /* large tablet   900px     1100px   3 items */
@@ -40,7 +40,7 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
     }
 
     .Navbar {
-        flex-direction: row;     /* the navbar should stack buttons vertically */
+        flex-direction: column;     /* the navbar should stack buttons vertically */
     }
 }
 
