@@ -13,7 +13,7 @@ function renderNavbar() {
     btn.setAttribute('role', 'button');
     btn.classList.add('Navbar-button');
     btn.classList.add('hamburgerButton');
-    btn.setAttribute('tabindex', '0'); // Should this have tab index? 
+    btn.setAttribute('tabindex', '0'); 
     nav.append(btn);
 
     // refactored so hamburger toggle can use this?
@@ -60,7 +60,7 @@ function createNavButtons() {
 function toggleHamburger() { 
     console.log("Toggling hamburger. . .");
     let welcomeButton = document.querySelector('#welcomeButton');
-    welcomeButton.classList.toggle('.Navbar.isHidden');
+    welcomeButton.classList.toggle('Navbar.isHidden');
 }
 
 
