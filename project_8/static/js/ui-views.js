@@ -39,6 +39,7 @@ function createNavButtons() {
     btn.setAttribute('class', 'Navbar-button');
     btn.setAttribute('role', 'button');
     btn.setAttribute('tabindex', '0'); 
+    btn.setAttribute('id', 'returnPolicyButton');
     btn.innerHTML = 'View Return Policy';
     btn.addEventListener('click', showReturnInfo);
     nav.append(btn);
@@ -47,6 +48,7 @@ function createNavButtons() {
     btn.setAttribute('class', 'Navbar-button');
     btn.setAttribute('role', 'button');
     btn.setAttribute('tabindex', '0'); 
+    btn.setAttribute('id', 'shoppingCartButton');
     btn.innerHTML = 'View Shopping Cart';
     btn.addEventListener('click', showCart);
     nav.append(btn);
@@ -61,6 +63,8 @@ function toggleHamburger() {
     console.log("Toggling hamburger. . .");
     let welcomeButton = document.querySelector('#welcomeButton');
     welcomeButton.classList.toggle('isHidden');
+    document.querySelector('#returnPolicyButton').classList.toggle('isHidden');
+    document.querySelector('#shoppingCartButton').classList.toggle('isHidden');
 }
 
 
