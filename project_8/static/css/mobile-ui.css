@@ -34,6 +34,13 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
     flex-direction: row;    /* stack nav bar horizontally */
 }
 
+/* hide when toggled? */
+/* display non vs  opacity */
+/* use transition for smoothness?  video doesn't show */
+.Navbar.isHidden {
+    display: none;
+}
+
   /* large tablet   900px     1100px   3 items */
 @media (max-width: 1100px) {
     .Products {

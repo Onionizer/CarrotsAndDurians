@@ -11,12 +11,10 @@ function renderNavbar() {
     btn.innerHTML = 'MENU <span role="img" aria-label="Menu icon">&equiv;</span>';
     // btn.addEventListener('click', toggleHamburger);
     btn.setAttribute('role', 'button');
-    // btn.setAttribute('class', 'Navbar-button');
     btn.classList.add('Navbar-button');
     btn.classList.add('hamburgerButton');
     btn.setAttribute('tabindex', '0'); // Should this have tab index? 
     nav.append(btn);
-    // Do I need to hide this initially?
 
     // refactored so hamburger toggle can use this?
     createNavButtons();
@@ -31,6 +29,7 @@ function createNavButtons() {
     btn.setAttribute('role', 'button');
     btn.setAttribute('class', 'Navbar-button');
     btn.setAttribute('tabindex', '0'); // set all to "0" will follow order on page
+    btn.setAttribute('id', 'welcomeButton');
     btn.innerHTML = 'OUTLET MALL SHOPPING';
     btn.addEventListener('click', showWelcome);
     nav.append(btn);
@@ -60,7 +59,8 @@ function createNavButtons() {
  */
 function toggleHamburger() { 
     console.log("Toggling hamburger. . .");
-    // guess I need to check if I'm turning it on or off
+    let welcomeButton = document.querySelector('#welcomeButton');
+    welcomeButton.classList.toggle('.Navbar.isHidden');
 }
 
 
@@ -74,9 +74,7 @@ function renderProduct(product) {
     // 1a) DONE: Ensure the button below exists in tab (use "tabindex")
     // 1b) DONE: Make sure the two emoji characters below (look for &#....; syntax) are accessible
     // (see "span" around icon in menu button above as example). 
-    // btn.innerHTML = 'MENU <span role="img" aria-label="Menu icon">&equiv;</span>';
-    // So have the text be in div, and have span be the image? Or just wrap the emoji with span?
-
+    //      btn.innerHTML = 'MENU <span role="img" aria-label="Menu icon">&equiv;</span>';
     // Fill in "aria-label" with an accessible description of the emoji.
 
     // DONE: #2 - Performance: Switch to use a smaller product image the img tag below (hint: look at API data for another URL)
