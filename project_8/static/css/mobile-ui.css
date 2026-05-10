@@ -30,6 +30,7 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
 }
 
 .Navbar {
+    display: flex;
     flex-direction: row;    /* stack nav bar horizontally */
 }
 
