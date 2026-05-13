@@ -1,6 +1,5 @@
 /*
-Responsive design
-BREAKPOINTS: 1100px (3), 900px (2), 600px (1)
+Responsive design   BREAKPOINTS: 1100px (3), 900px (2), 600px (1)
 The application must be responsive, such that the number of items horizontally in the grid changes based on device width (see breakpoints chart below for details)
 
 DONE: Make the grid show different quantity of items
@@ -10,25 +9,13 @@ DONE: Make the grid show different quantity of items
   large tablet   900px     1100px   3 items
   small tablet   600px      900px   2 items
   mobile                    600px   1 item
-*/
-/* 
-TODO
+
 The application must have a "hamburger menu" that only appears at "900px wide" (and narrower)
     > 900px, the navbar should stack buttons horizontally
         ...and hide hamburger menu (see video)
     < 900px, the navbar should stack buttons vertically
         ...and only show all buttons if "hamburger menu" toggled (see video)
 */
-
-/* hide when toggled? */
-/* display non vs  opacity */
-/* use transition for smoothness?  video doesn't show */
-.Navbar .isHidden {
-    display: none;
-}
-
-
-
 
 /* This is desktop */
 .Products {
@@ -44,7 +31,6 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
     display: block;
 }
 
-
 .Navbar {
     display: flex;
     flex-direction: row;    /* stack nav bar horizontally, overriden at <900px */
@@ -56,11 +42,6 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
     .Products {
         grid-template-columns: 1fr 1fr 1fr;
     }
-
-    /* Need to hide hamburger for 900+
-    .hamburgerButton {
-        display: none;
-    } */
 }
 
 
@@ -82,10 +63,11 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
     .show-on-large-tablet {
         display: none;
     }
-
+    .show-on-large-tablet.is-visible {
+        display: block;
+    }
 }
 
-/* Do I need to do hamburger menu here? because it's the  */
 /* Modal-window has already been tweaked to look better on mobile: */
 @media (max-width: 600px) {      
     .Products {

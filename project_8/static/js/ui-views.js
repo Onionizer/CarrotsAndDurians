@@ -65,22 +65,17 @@ function createNavButtons() {
  */
 function toggleHamburger() { 
     console.log("Toggling hamburger. . .");
-    // let welcomeButton = document.querySelector('#welcomeButton');
-    // welcomeButton.classList.toggle('isHidden');    
-    // document.querySelector('#returnPolicyButton').classList.toggle('isHidden');
-    // document.querySelector('#shoppingCartButton').classList.toggle('isHidden');
-
     let welcomeButton = document.querySelector('#welcomeButton');
-    welcomeButton.classList.toggle('show-on-large-tablet');    
-    welcomeButton.classList.toggle('hide-on-large-tablet');    
+    welcomeButton.classList.toggle('is-visible');    
+    // welcomeButton.classList.toggle('hide-on-large-tablet');    
 
     let returnPolicyButton = document.querySelector('#returnPolicyButton');
-    returnPolicyButton.classList.toggle('show-on-large-tablet');    
-    returnPolicyButton.classList.toggle('hide-on-large-tablet');   
+    returnPolicyButton.classList.toggle('is-visible');    
+    // returnPolicyButton.classList.toggle('hide-on-large-tablet');   
 
     let shoppingCartButton = document.querySelector('#shoppingCartButton');
-    shoppingCartButton.classList.toggle('show-on-large-tablet');    
-    shoppingCartButton.classList.toggle('hide-on-large-tablet');   
+    shoppingCartButton.classList.toggle('is-visible');    
+    // shoppingCartButton.classList.toggle('hide-on-large-tablet');   
 }
 
 
