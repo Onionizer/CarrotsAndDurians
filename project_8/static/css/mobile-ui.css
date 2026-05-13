@@ -35,6 +35,16 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
+/* For menu button */
+.hide-on-large-tablet {
+    display: none;
+}
+/* For others */
+.show-on-large-tablet {
+    display: block;
+}
+
+
 .Navbar {
     display: flex;
     flex-direction: row;    /* stack nav bar horizontally, overriden at <900px */
@@ -45,15 +55,6 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
 @media (max-width: 1100px) {
     .Products {
         grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    /* For menu button */
-    .hide-on-large-tablet {
-        display: none;
-    }
-    /* For others */
-    .show-on-large-tablet {
-        display: block;
     }
 
     /* Need to hide hamburger for 900+ */
