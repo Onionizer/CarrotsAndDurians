@@ -25,12 +25,29 @@
             )
         }
 
+        function SubtractExample({ a, b }) {
+            let results = a - b;
+            return (
+                <p className="SubtractExample">{ a } - {  b } = { results }</p>
+            )
+        }
+
+        function SumAll({ arr }) {
+            let sum = 0;
+            return (
+                <p className="SumAll"> arr.join(" + ") = {sum}</p>
+            )
+        }
+
         function App() {
             return (
                 <div className="App">
                     <h1>Hello React World!</h1>
-                    <SumExample a={100} b={}/>
+                    <SumExample a={10} b={20}/>
+                    <SumExample a={3} b={100}/>
                     
+                    <SubtractExample a={10} b={20} />
+                    <SumAll arr={[ 10, 20, 30, 40, 50 ]} />
                 </div>
             );
         }
