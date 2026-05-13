@@ -67,25 +67,19 @@ function toggleHamburger() {
     console.log("Toggling hamburger. . .");
     let welcomeButton = document.querySelector('#welcomeButton');
     welcomeButton.classList.toggle('is-visible');    
-    // welcomeButton.classList.toggle('hide-on-large-tablet');    
 
     let returnPolicyButton = document.querySelector('#returnPolicyButton');
     returnPolicyButton.classList.toggle('is-visible');    
-    // returnPolicyButton.classList.toggle('hide-on-large-tablet');   
 
     let shoppingCartButton = document.querySelector('#shoppingCartButton');
     shoppingCartButton.classList.toggle('is-visible');    
-    // shoppingCartButton.classList.toggle('hide-on-large-tablet');   
 }
 
 
 function renderProduct(product) {
-    // console.log("Rendering product images:" + product.images);
-
     let div = document.createElement('div');
     div.setAttribute('class', 'Item'); // Ensure gets 'Item' class
-    
-    // TODO: #1 - Accessibility
+
     // 1a) DONE: Ensure the button below exists in tab (use "tabindex")
     // 1b) DONE: Make sure the two emoji characters below (look for &#....; syntax) are accessible
     // (see "span" around icon in menu button above as example). 
