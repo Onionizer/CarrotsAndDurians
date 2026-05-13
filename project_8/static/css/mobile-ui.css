@@ -20,20 +20,6 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
         ...and only show all buttons if "hamburger menu" toggled (see video)
 */
 
-/* This is desktop */
-.Products {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-
-.hamburgerButton {
-    display: none;
-}
-
-.Navbar {
-    display: flex;
-    flex-direction: row;    /* stack nav bar horizontally */
-}
-
 /* hide when toggled? */
 /* display non vs  opacity */
 /* use transition for smoothness?  video doesn't show */
@@ -42,23 +28,16 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
 }
 
 
-/* For menu button */
-.hide-on-desktop {
-   display: block;
+
+
+/* This is desktop */
+.Products {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-/* For others */
-.show-on-desktop {
-   display: none;
-}
-@media (min-width: 1200px) {
-    /* For menu button */
-    .hide-on-desktop {
-        display: none;
-    }
-    /* For others */
-    .show-on-desktop {
-        display: block;
-    }
+
+.Navbar {
+    display: flex;
+    flex-direction: row;    /* stack nav bar horizontally, overriden at <900px */
 }
 
 
@@ -66,6 +45,20 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
 @media (max-width: 1100px) {
     .Products {
         grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    /* For menu button */
+    .hide-on-large-tablet {
+        display: none;
+    }
+    /* For others */
+    .show-on-large-tablet {
+        display: block;
+    }
+
+    /* Need to hide hamburger for 900+ */
+    .hamburgerButton {
+        display: none;
     }
 }
 
@@ -78,6 +71,15 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
     
     .Navbar {
         flex-direction: column;     /* the navbar should stack buttons vertically */
+    }
+
+    /* For menu button */
+    .hide-on-large-tablet {
+        display: block;
+    }
+    /* For others */
+    .show-on-large-tablet {
+        display: none;
     }
 
 

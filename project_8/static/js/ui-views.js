@@ -12,7 +12,8 @@ function renderNavbar() {
     btn.addEventListener('click', toggleHamburger);
     btn.setAttribute('role', 'button');
     btn.classList.add('Navbar-button');
-    btn.classList.add('hamburgerButton');
+    btn.classList.add('hide-on-large-tablet');
+    // btn.classList.add('hamburgerButton');
     btn.setAttribute('tabindex', '0'); 
     nav.append(btn);
 
@@ -30,6 +31,7 @@ function createNavButtons() {
     btn.setAttribute('class', 'Navbar-button');
     btn.setAttribute('tabindex', '0'); // set all to "0" will follow order on page
     btn.setAttribute('id', 'welcomeButton');
+    btn.classList.add('show-on-large-tablet');
     btn.innerHTML = 'OUTLET MALL SHOPPING';
     btn.addEventListener('click', showWelcome);
     nav.append(btn);
@@ -40,6 +42,7 @@ function createNavButtons() {
     btn.setAttribute('role', 'button');
     btn.setAttribute('tabindex', '0'); 
     btn.setAttribute('id', 'returnPolicyButton');
+    btn.classList.add('show-on-large-tablet');
     btn.innerHTML = 'View Return Policy';
     btn.addEventListener('click', showReturnInfo);
     nav.append(btn);
@@ -49,6 +52,7 @@ function createNavButtons() {
     btn.setAttribute('role', 'button');
     btn.setAttribute('tabindex', '0'); 
     btn.setAttribute('id', 'shoppingCartButton');
+    btn.classList.add('show-on-large-tablet');
     btn.innerHTML = 'View Shopping Cart';
     btn.addEventListener('click', showCart);
     nav.append(btn);
@@ -61,10 +65,22 @@ function createNavButtons() {
  */
 function toggleHamburger() { 
     console.log("Toggling hamburger. . .");
+    // let welcomeButton = document.querySelector('#welcomeButton');
+    // welcomeButton.classList.toggle('isHidden');    
+    // document.querySelector('#returnPolicyButton').classList.toggle('isHidden');
+    // document.querySelector('#shoppingCartButton').classList.toggle('isHidden');
+
     let welcomeButton = document.querySelector('#welcomeButton');
-    welcomeButton.classList.toggle('isHidden');    
-    document.querySelector('#returnPolicyButton').classList.toggle('isHidden');
-    document.querySelector('#shoppingCartButton').classList.toggle('isHidden');
+    welcomeButton.classList.toggle('show-on-large-tablet');    
+    welcomeButton.classList.toggle('hide-on-large-tablet');    
+
+    let returnPolicyButton = document.querySelector('#returnPolicyButton');
+    returnPolicyButton.classList.toggle('show-on-large-tablet');    
+    returnPolicyButton.classList.toggle('hide-on-large-tablet');   
+
+    let shoppingCartButton = document.querySelector('#shoppingCartButton');
+    shoppingCartButton.classList.toggle('show-on-large-tablet');    
+    shoppingCartButton.classList.toggle('hide-on-large-tablet');   
 }
 
 
