@@ -57,10 +57,10 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
         grid-template-columns: 1fr 1fr 1fr;
     }
 
-    /* Need to hide hamburger for 900+ */
+    /* Need to hide hamburger for 900+
     .hamburgerButton {
         display: none;
-    }
+    } */
 }
 
 
@@ -83,12 +83,6 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
         display: none;
     }
 
-
-    /* ...and only show all buttons if "hamburger menu" toggled (see video) */
-    /* Need to show here, and have it hidden by default */
-    .hamburgerButton {
-        display: flex;
-    }
 }
 
 /* Do I need to do hamburger menu here? because it's the  */
