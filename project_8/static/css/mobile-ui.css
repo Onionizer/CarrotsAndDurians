@@ -41,7 +41,28 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
     display: none;
 }
 
-  /* large tablet   900px     1100px   3 items */
+
+/* For menu button */
+.hide-on-desktop {
+   display: block;
+}
+/* For others */
+.show-on-desktop {
+   display: none;
+}
+@media (min-width: 1200px) {
+    /* For menu button */
+    .hide-on-desktop {
+        display: none;
+    }
+    /* For others */
+    .show-on-desktop {
+        display: block;
+    }
+}
+
+
+/* large tablet   900px     1100px   3 items */
 @media (max-width: 1100px) {
     .Products {
         grid-template-columns: 1fr 1fr 1fr;
@@ -49,7 +70,7 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
 }
 
 
-  /* small tablet   600px      900px   2 items */
+/* small tablet   600px      900px   2 items */
 @media (max-width: 900px) {
     .Products {
         grid-template-columns: 1fr 1fr;
