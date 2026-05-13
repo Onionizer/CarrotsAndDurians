@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>React Playground - Web App</title>
+    <meta charset="utf8" />
+    <meta name="content-type" http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <style>
+        .App {
+            background: #d9ef3222;
+            margin: 2vw;
+            padding: 2vw;
+        }
+        
+        .SumExample {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+
+
+    
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const rootElement = document.getElementById('root');
+        const root = ReactDOM.createRoot(rootElement);
+        let a = 1; // JS can be here
+      
+        function App() {
+            return (
+                <div className="App">
+                    <h1>Hello React World!</h1>
+                    <p>Use of components:</p>
+                    <SumExample a={10} b={20} />
+                    <SumExample a={3} b={100} />
+                </div>
+            );
+        }
+
+        root.render(<App />);
+    </script>
+</body>
+</html>
+
