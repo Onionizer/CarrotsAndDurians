@@ -34,8 +34,21 @@
 
         function SumAll({ arr }) {
             let sum = 0;
+            for (const num of arr) {
+                sum += num;
+            }
             return (
-                <p className="SumAll"> arr.join(" + ") = {sum}</p>
+                <p className="SumAll"> {arr.join(" + ")} = {sum}</p>
+            )
+        }
+
+        function MultAll({ arr }) {
+            let product = 1;
+            for (const num of arr) {
+                product *= num
+            }
+            return (
+                <p className="MultAll"> {arr.join(" * ")} = {product}</p>
             )
         }
 
@@ -48,6 +61,8 @@
                     
                     <SubtractExample a={10} b={20} />
                     <SumAll arr={[ 10, 20, 30, 40, 50 ]} />
+                    <MultAll arr={[ 10, 20, 30, 40, 50 ]} />
+
                 </div>
             );
         }
