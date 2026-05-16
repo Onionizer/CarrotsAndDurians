@@ -13,11 +13,9 @@ function renderNavbar() {
     btn.setAttribute('role', 'button');
     btn.classList.add('Navbar-button');
     btn.classList.add('hide-on-large-tablet');
-    // btn.classList.add('hamburgerButton');
     btn.setAttribute('tabindex', '0'); 
     nav.append(btn);
 
-    // refactored so hamburger toggle can use this?
     createNavButtons();
 }
 
@@ -66,13 +64,13 @@ function createNavButtons() {
 function toggleHamburger() { 
     console.log("Toggling hamburger. . .");
     let welcomeButton = document.querySelector('#welcomeButton');
-    welcomeButton.classList.toggle('is-visible');    
+    welcomeButton.classList.toggle('is-hidden');    
 
     let returnPolicyButton = document.querySelector('#returnPolicyButton');
-    returnPolicyButton.classList.toggle('is-visible');    
+    returnPolicyButton.classList.toggle('is-hidden');    
 
     let shoppingCartButton = document.querySelector('#shoppingCartButton');
-    shoppingCartButton.classList.toggle('is-visible');    
+    shoppingCartButton.classList.toggle('is-hidden');    
 }
 
 

@@ -61,10 +61,14 @@ The application must have a "hamburger menu" that only appears at "900px wide" (
     }
     /* For others */
     .show-on-large-tablet {
-        display: none;
+        display: block;
     }
+
     .show-on-large-tablet.is-visible {
         display: block;
+    }
+    .show-on-large-tablet.is-hidden {
+        display: none;
     }
 }
 
