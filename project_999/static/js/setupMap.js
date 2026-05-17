@@ -15,16 +15,16 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 
 // Convert text address to latitute and longitutde.
-function textAddressToLatLong(address) {
+async function textAddressToLatLong(address) {
     console.log("Converting address to latitude & longitude:", address);
     const URL = `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(address)}`;
 
-    return fetch(URL)
-        .then((response) => response.json()) 
-        .then((data) => {
-            console.log("Received loc data:", data);
-            return L.latLng(data[0].lat, data[0].lon);
-        });
+    // return fetch(URL)
+    //     .then((response) => response.json()) 
+    //     .then((data) => {
+    //         console.log("Received loc data:", data);
+    //         return L.latLng(data[0].lat, data[0].lon);
+    //     });
 
 
     try {
