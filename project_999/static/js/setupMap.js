@@ -12,11 +12,6 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-
-// Have a list of pins for pickup spots
-
-
-
 // Convert text address to latitute and longitutde.
 async function textAddressToLatLong(address) {
     console.log("Converting address to latitude & longitude:", address);
@@ -108,23 +103,18 @@ const pickupSpots = [
 const bartTrainIcon = L.icon({
     iconUrl: 'https://cdn.shoplightspeed.com/shops/637485/files/60678338/bart-fleet-train-sticker.jpg',
     // shadowUrl for fancy shadow effect
-    iconSize: [28, 28],      // size of the icon
-    iconAnchor: [14, 14],    // point of the icon which will correspond to marker's location
-    popupAnchor: [0, -14]   // point from which the popup should open relative to the iconAnchor
+    // iconSize: [28, 28],      // size of the icon - 28 is too big.
+    iconSize: [24, 24],      
+    iconAnchor: [12, 12],    // point of the icon which will correspond to marker's location
+    popupAnchor: [0, -12]   // point from which the popup should open relative to the iconAnchor
 });
 
 
 function pinPickUpSpots() {
     pickupSpots.forEach(pickUpSpot => {
-        L.marker([pickUpSpot.lat, pickUpSpot.lon], {icon: bartTrainIcon}).addTo(map).bindPopup(pickUpSpot.name);
-
-        // L.circleMarker([pickUpSpot.lat, pickUpSpot.lon], {
-        //     radius: 7,
-        //     fillColor: "#28a72e",
-        //     // color: "#ffffff",
-        //     // weight: 2,
-        //     fillOpacity: 1,
-        // }).addTo(map)
+        L.marker([pickUpSpot.lat, pickUpSpot.lon], {icon: bartTrainIcon})
+            .addTo(map)
+            .bindPopup(pickUpSpot.name);    // I can add HTML to .bindPopup() to be fancier.
     });
 }
 pinPickUpSpots();
