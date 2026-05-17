@@ -103,7 +103,13 @@ const pickupSpots = [
 
 function pinPickUpSpots() {
     pickupSpots.forEach(pickUpSpot => {
-        L.marker([pickUpSpot.lat, pickUpSpot.lon]).addTo(map)
+        L.circleMarker([pickUpSpot.lat, pickUpSpot.lon], {
+            radius: 7,
+            fillColor: "#28a72e",
+            // color: "#ffffff",
+            // weight: 2,
+            // fillOpacity: 0.9,
+        }).addTo(map)
     });
 }
 pinPickUpSpots();
