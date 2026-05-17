@@ -118,3 +118,6 @@ async function calculateAndDisplayRoute() {
         console.error("Error calculating/displaying route:", error);
     }
 }
+
+
+calculateAndDisplayRoute();
