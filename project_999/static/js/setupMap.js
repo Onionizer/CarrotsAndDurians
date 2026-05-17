@@ -80,10 +80,12 @@ async function textAddressToLatLong(address) {
 
 // Break these down into smaller boxes and concat them. For now, just one box for prototyping
 function getHomeAddress() {
-    return document.getElementById("home-address").value;
+    let address = document.getElementById("full-home-address").value;
+    return textAddressToLatLong(address);
 }
 function getWorkAddress() {
-    return document.getElementById("work-address").value;
+    let address = document.getElementById("full-work-address").value;
+    return textAddressToLatLong(address);
 }
 
 
@@ -122,13 +124,15 @@ pinPickUpSpots();
 // Need a way to erase old routes when displaying new one
 let currentRoutingControl = null;
 async function calculateAndDisplayRoute() {
+    console.log("Calculating and displaying route . . .");
+
     //  prob easier to just have one box for now 
-    // const homeAddress = getHomeAddress();
-    const homeCoordinates = await textAddressToLatLong("UC Berkeley, CA");
+    const homeCoordinates = getHomeAddress();
+    // const homeCoordinates = await textAddressToLatLong("UC Berkeley, CA");
     console.log("Home address lat/long:", homeCoordinates);
     
-    // const workAddress = getWorkAddress();
-    const workCoordinates = await textAddressToLatLong("Downtown Redwood City, CA");
+    const workCoordinates = getWorkAddress();
+    // const workCoordinates = await textAddressToLatLong("Downtown Redwood City, CA");
     console.log("Work address lat/long:", workCoordinates);
 
     try {
@@ -146,5 +150,5 @@ async function calculateAndDisplayRoute() {
     }
 }
 
-
-calculateAndDisplayRoute();
+document.getElementById("show-route-button").addEventListener("click", calculateAndDisplayRoute);
+// calculateAndDisplayRoute();
