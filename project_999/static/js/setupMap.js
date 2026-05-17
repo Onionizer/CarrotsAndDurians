@@ -4,7 +4,8 @@ console.log("Setting up map . . .");
 // Higher = zoom in closer.  
 // const map = L.map('map').setView([ 37.87, -122.27 ], 10);   // Need to move down and to the right
 // const map = L.map('map').setView([ 40.87, -125.27 ], 12); // too much ?
-const map = L.map('map').setView([ 37.90, -122.30 ], 9);   // This is OK.  
+// const map = L.map('map').setView([ 37.90, -122.30 ], 9);   // This is OK w/ 1000px height but need to zoom in more after reducing  to 700px.  
+const map = L.map('map').setView([ 37.90, -122.30 ], 8); 
 
 const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -103,15 +104,27 @@ const pickupSpots = [
     {name: "Lake Merritt BART",                        lat: 37.7970, lon: -122.2651}
 ];
 
+// https://leafletjs.com/examples/custom-icons/
+const bartTrainIcon = L.icon({
+    iconUrl: 'https://cdn.shoplightspeed.com/shops/637485/files/60678338/bart-fleet-train-sticker.jpg',
+    // shadowUrl for fancy shadow effect
+    iconSize: [28, 28],      // size of the icon
+    iconAnchor: [14, 14],    // point of the icon which will correspond to marker's location
+    popupAnchor: [0, -14]   // point from which the popup should open relative to the iconAnchor
+});
+
+
 function pinPickUpSpots() {
     pickupSpots.forEach(pickUpSpot => {
-        L.circleMarker([pickUpSpot.lat, pickUpSpot.lon], {
-            radius: 7,
-            fillColor: "#28a72e",
-            // color: "#ffffff",
-            // weight: 2,
-            fillOpacity: 1,
-        }).addTo(map)
+        L.marker([pickUpSpot.lat, pickUpSpot.lon], {icon: bartTrainIcon}).addTo(map).bindPopup(pickUpSpot.name);
+
+        // L.circleMarker([pickUpSpot.lat, pickUpSpot.lon], {
+        //     radius: 7,
+        //     fillColor: "#28a72e",
+        //     // color: "#ffffff",
+        //     // weight: 2,
+        //     fillOpacity: 1,
+        // }).addTo(map)
     });
 }
 pinPickUpSpots();
