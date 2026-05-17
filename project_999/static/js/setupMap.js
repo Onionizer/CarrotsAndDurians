@@ -89,6 +89,27 @@ function getWorkAddress() {
     return document.getElementById("work-address").value;
 }
 
+
+function pinPickUpSpots() {
+    pickupSpots.forEach(pickUpSpot => {
+        L.marker([pickUpSpot.lat, pickUpSpot.lon]).addTo(map)
+    });
+}
+
+
+const pickupSpots = [
+    {name: "Pleasant Hill/Contra Costa Centre BART",   lat: 37.9284, lon: -122.0560},
+    {name: "Walnut Creek BART",                        lat: 37.9055, lon: -122.0675},
+    {name: "Lafayette BART",                           lat: 37.8931, lon: -122.1246},
+    {name: "Orinda BART",                              lat: 37.8784, lon: -122.1837},
+    {name: "Rockridge BART",                           lat: 37.8447, lon: -122.2513},
+    {name: "12th St Oakland City Center BART",         lat: 37.8030, lon: -122.2716},
+    {name: "Lake Merritt BART",                        lat: 37.7970, lon: -122.2651}
+];
+
+// Pin the pickup spots on the map
+pinPickUpSpots();
+
 // Need a way to erase old routes when displaying new one
 let currentRoutingControl = null;
 async function calculateAndDisplayRoute() {
