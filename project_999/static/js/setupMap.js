@@ -2,7 +2,8 @@ console.log("Setting up map . . .");
 
 // Copied from project 2
 // Higher = zoom in closer.  
-const map = L.map('map').setView([ 37.87, -122.27 ], 10);
+// const map = L.map('map').setView([ 37.87, -122.27 ], 10);   // Need to move down and to the right
+const map = L.map('map').setView([ 40.87, -125.27 ], 12);
 
 const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -108,7 +109,7 @@ function pinPickUpSpots() {
             fillColor: "#28a72e",
             // color: "#ffffff",
             // weight: 2,
-            // fillOpacity: 0.9,
+            fillOpacity: 1,
         }).addTo(map)
     });
 }
