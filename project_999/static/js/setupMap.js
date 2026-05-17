@@ -57,7 +57,27 @@ async function textAddressToLatLong(address) {
 //     "place_rank": 30
 //   }
 // ]
-textAddressToLatLong("Downtown Redwood City, CA");
+// textAddressToLatLong("Downtown Redwood City, CA");
+// [
+//   {
+//     "place_id": 324720148,
+//     "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+//     "osm_type": "way",
+//     "osm_id": 240211431,
+//     "boundingbox": ["37.4853549", "37.4855876", "-122.2279621", "-122.2276210"],
+//     "lat": "37.4854375",
+//     "lon": "-122.2277882",
+//     "display_name": "Downtown Station Redwood City Post Office, 855, Jefferson Avenue, Redwood Junction, Redwood City, San Mateo County, California, 94063, United States",
+//     "class": "amenity",
+//     "type": "post_office",
+//     "addresstype": "amenity",
+//     "name": "Downtown Station Redwood City Post Office",
+//     "importance": 0.00006208209353775871,
+//     "place_rank": 30
+//   }
+// ]
+
+
 // textAddressToLatLong("Walnut Creek, CA");
 
 // Break these down into smaller boxes and concat them. For now, just one box for prototyping
@@ -74,18 +94,26 @@ let currentRoutingControl = null;
 async function calculateAndDisplayRoute() {
     //  prob easier to just have one box for now 
     // const homeAddress = getHomeAddress();
-    const homeAddress = textAddressToLatLong("UC Berkeley, CA");
+    const homeCoordinates = await textAddressToLatLong("UC Berkeley, CA");
     console.log("Home address lat/long:", homeAddress);
     
     // const workAddress = getWorkAddress();
-    const workAddress = textAddressToLatLong("Downtown Redwood City, CA");
+    const workCoordinates = await textAddressToLatLong("Downtown Redwood City, CA");
     console.log("Work address lat/long:", workAddress);
 
     try {
         // Create URL for OpenRouteService API call
-        const URL = 'tempURL';
+        currentRoutingControl = L.Routing.control({
+            waypoints: [homeCoordinates, workCoordinates],
+            router: L.Routing.osrmv1({
+                serviceUrl: 'https://router.project-osrm.org/viaroute' 
+            }),
+            lineOptions: {
+                styles: [{ color: '#2A75D3', weight: 6, opacity: 0.85 }] 
+            },
 
-        const response = await fetch(URL);
+            show: false // Keeps the layout clean by hiding the textual list of turn directions
+        }).addTo(map);
     } catch (error) {
         console.error("Error calculating/displaying route:", error);
     }
