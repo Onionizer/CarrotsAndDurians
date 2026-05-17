@@ -28,7 +28,7 @@ async function textAddressToLatLong(address) {
     try {
         const response = await fetch(URL);
         const data = await response.json();
-        console.log("Received loc data:", data);
+        console.log("Received loc data:", data, "for address:", address);
 
         // maybe check if address exists? 
         return L.latLng(data[0].lat, data[0].lon);
@@ -127,11 +127,11 @@ async function calculateAndDisplayRoute() {
     console.log("Calculating and displaying route . . .");
 
     //  prob easier to just have one box for now 
-    const homeCoordinates = getHomeAddress();
+    const homeCoordinates = await getHomeAddress();
     // const homeCoordinates = await textAddressToLatLong("UC Berkeley, CA");
     console.log("Home address lat/long:", homeCoordinates);
     
-    const workCoordinates = getWorkAddress();
+    const workCoordinates = await getWorkAddress();
     // const workCoordinates = await textAddressToLatLong("Downtown Redwood City, CA");
     console.log("Work address lat/long:", workCoordinates);
 
