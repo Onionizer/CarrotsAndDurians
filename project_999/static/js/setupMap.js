@@ -24,7 +24,6 @@ async function textAddressToLatLong(address) {
     //         return L.latLng(data[0].lat, data[0].lon);
     //     });
 
-
     try {
         const response = await fetch(URL);
         const data = await response.json();
@@ -79,13 +78,13 @@ async function textAddressToLatLong(address) {
 // textAddressToLatLong("Walnut Creek, CA");
 
 // Break these down into smaller boxes and concat them. For now, just one box for prototyping
-function getHomeAddress() {
+async function getHomeAddress() {
     let address = document.getElementById("full-home-address").value;
-    return textAddressToLatLong(address);
+    return await textAddressToLatLong(address);
 }
-function getWorkAddress() {
+async function getWorkAddress() {
     let address = document.getElementById("full-work-address").value;
-    return textAddressToLatLong(address);
+    return await textAddressToLatLong(address);
 }
 
 
