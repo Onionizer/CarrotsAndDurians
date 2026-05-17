@@ -95,11 +95,11 @@ async function calculateAndDisplayRoute() {
     //  prob easier to just have one box for now 
     // const homeAddress = getHomeAddress();
     const homeCoordinates = await textAddressToLatLong("UC Berkeley, CA");
-    console.log("Home address lat/long:", homeAddress);
+    console.log("Home address lat/long:", homeCoordinates);
     
     // const workAddress = getWorkAddress();
     const workCoordinates = await textAddressToLatLong("Downtown Redwood City, CA");
-    console.log("Work address lat/long:", workAddress);
+    console.log("Work address lat/long:", workCoordinates);
 
     try {
         // Create URL for OpenRouteService API call
