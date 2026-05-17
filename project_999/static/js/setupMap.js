@@ -13,6 +13,23 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // Have a list of pins for pickup spots
 
 
+
+// Convert text address to latitute and longitutde.
+function textAddressToLatLong(address) {
+    console.log("Converting address to latitude & longitude:", address);
+    const URL = `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(address)}`;
+
+    return fetch(URL)
+        .then((response) => response.json()) 
+        .then((data) => {
+            console.log("Received loc data:", data);
+            return L.latLng(data[0].lat, data[0].lon);
+        });
+}
+textAddressToLatLong("UC Berkeley, Berkeley, CA");
+textAddressToLatLong("Downtown Redwood City, CA");
+textAddressToLatLong("Walnut Creek, CA");
+
 // Break these down into smaller boxes and concat them. For now, just one box for prototyping
 function getHomeAddress() {
     return document.getElementById("home-address").value;
@@ -30,7 +47,10 @@ async function calculateAndDisplayRoute() {
     const workAddress = getWorkAddress();
 
     try {
+        // Create URL for OpenRouteService API call
+        const URL = 'tempURL';
 
+        const response = await fetch(URL);
     } catch (error) {
         console.error("Error calculating/displaying route:", error);
     }
