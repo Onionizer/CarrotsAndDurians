@@ -84,19 +84,13 @@ async function textAddressToLatLong(address) {
 function getHomeAddress() {
     return document.getElementById("home-address").value;
 }
-
 function getWorkAddress() {
     return document.getElementById("work-address").value;
 }
 
 
-function pinPickUpSpots() {
-    pickupSpots.forEach(pickUpSpot => {
-        L.marker([pickUpSpot.lat, pickUpSpot.lon]).addTo(map)
-    });
-}
-
-
+// Pin the pickup spots on the map
+// Once everything is working, should store the pickup spot information elsewhere to pull it out so it can be show in dropdown or something.
 const pickupSpots = [
     {name: "Pleasant Hill/Contra Costa Centre BART",   lat: 37.9284, lon: -122.0560},
     {name: "Walnut Creek BART",                        lat: 37.9055, lon: -122.0675},
@@ -107,7 +101,11 @@ const pickupSpots = [
     {name: "Lake Merritt BART",                        lat: 37.7970, lon: -122.2651}
 ];
 
-// Pin the pickup spots on the map
+function pinPickUpSpots() {
+    pickupSpots.forEach(pickUpSpot => {
+        L.marker([pickUpSpot.lat, pickUpSpot.lon]).addTo(map)
+    });
+}
 pinPickUpSpots();
 
 // Need a way to erase old routes when displaying new one
@@ -126,9 +124,6 @@ async function calculateAndDisplayRoute() {
         // Create URL for OpenRouteService API call
         currentRoutingControl = L.Routing.control({
             waypoints: [homeCoordinates, workCoordinates],
-            router: L.Routing.osrmv1({
-                serviceUrl: 'https://router.project-osrm.org/viaroute' 
-            }),
             lineOptions: {
                 styles: [{ color: '#2A75D3', weight: 6, opacity: 0.85 }] 
             },
