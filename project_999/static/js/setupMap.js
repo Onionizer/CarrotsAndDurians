@@ -25,10 +25,22 @@ function textAddressToLatLong(address) {
             console.log("Received loc data:", data);
             return L.latLng(data[0].lat, data[0].lon);
         });
+
+
+    try {
+        const response = await fetch(URL);
+        const data = await response.json();
+        console.log("Received loc data:", data);
+
+        // maybe check if address exists? 
+        return L.latLng(data[0].lat, data[0].lon);
+    } catch (error) {
+        console.error("Error converting address to lat/long:", error);
+    }
 }
 textAddressToLatLong("UC Berkeley, Berkeley, CA");
-textAddressToLatLong("Downtown Redwood City, CA");
-textAddressToLatLong("Walnut Creek, CA");
+// textAddressToLatLong("Downtown Redwood City, CA");
+// textAddressToLatLong("Walnut Creek, CA");
 
 // Break these down into smaller boxes and concat them. For now, just one box for prototyping
 function getHomeAddress() {
