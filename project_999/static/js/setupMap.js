@@ -1,4 +1,4 @@
-import { FIREBASE_CONFIG, FIREBASE_PROTOTYPE_NO_AUTH_COLLECTION } from "./constants.js";
+import { FIREBASE_CONFIG, FIREBASE_PROTOTYPE_NO_AUTH_COLLECTION, OPENROUTESERVICE_API_KEY, ROUTE_STYLE } from "./constants.js";
 
 console.log("Setting up map . . .");
 
@@ -156,6 +156,11 @@ async function persistRouteToFirebase(homeCoordinates, workCoordinates) {
 }
 
 
+
+const Directions = new OpenRouteService.Directions({
+    api_key: OPENROUTESERVICE_API_KEY
+});
+
 // Need a way to erase old routes when displaying new one
 let currentRoutingControl = null;
 async function calculateAndDisplayRoute() {
@@ -177,21 +182,35 @@ async function calculateAndDisplayRoute() {
             map.removeControl(currentRoutingControl);
         }
 
-        // Create URL for OpenRouteService API call
-        currentRoutingControl = L.Routing.control({
-            waypoints: [homeCoordinates, workCoordinates],
-            // Set up OpenRouteService
-            router: L.Routing.openrouteservice('eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6IjM4ZTEwZDU4MzhmNzRmNDNiNmVmMDc3ZDEzZTk0ODY1IiwiaCI6Im11cm11cjY0In0=', {
-                // do I need to specify format: json?
-                profile: 'driving-car',
-                api_version: 'v2' 
-            }),
-            lineOptions: {
-                styles: [{ color: '#2A75D3', weight: 6, opacity: 0.85 }] 
-            },
+        const json = await Directions.calculate({
+            coordinates: [
+                // V2 expects [Longitude, Latitude], Leaflet expects [Latitude, Longitude]. 
+                [homeCoordinates.lng, homeCoordinates.lat], 
+                [workCoordinates.lng, workCoordinates.lat]
+            ],
+            profile: 'driving-car',
+            format: 'geojson'
+        });
 
-            show: false // Keeps the layout clean by hiding the text list of turn directions
+        currentRoutingControl = L.geoJSON(json, {
+            style: ROUTE_STYLE
         }).addTo(map);
+
+
+        // currentRoutingControl = L.Routing.control({
+        //     waypoints: [homeCoordinates, workCoordinates],
+        //     // Set up OpenRouteService
+        //     router: L.Routing.openrouteserviceV2('eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6IjM4ZTEwZDU4MzhmNzRmNDNiNmVmMDc3ZDEzZTk0ODY1IiwiaCI6Im11cm11cjY0In0=', {
+        //         // do I need to specify format: json?
+        //         profile: 'driving-car',
+        //         api_version: 'v2' 
+        //     }),
+        //     lineOptions: {
+        //         styles: [{ color: '#2A75D3', weight: 6, opacity: 0.85 }] 
+        //     },
+
+        //     show: false // Keeps the layout clean by hiding the text list of turn directions
+        // }).addTo(map);
 
         // try persisting to test
         let passengerCapacity = getPassengerCapacity();
