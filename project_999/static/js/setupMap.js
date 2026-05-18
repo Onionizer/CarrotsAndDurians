@@ -154,7 +154,7 @@ async function persistRouteToFirebase(homeCoordinates, workCoordinates) {
 }
 
 
-const Directions = new orsSdk.Directions({
+const Directions = new Openrouteservice.Directions({
     api_key: OPENROUTESERVICE_API_KEY
 });
 
