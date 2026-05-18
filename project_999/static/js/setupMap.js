@@ -87,6 +87,12 @@ async function getWorkAddress() {
     return await textAddressToLatLong(address);
 }
 
+function getPassengerCapacity() {
+    let passengerCapacity = document.getElementById("passenger-capacity").value;
+    return passengerCapacity;
+}
+
+
 
 // Pin the pickup spots on the map
 // Once everything is working, should store the pickup spot information elsewhere to pull it out so it can be show in dropdown or something.
@@ -124,14 +130,12 @@ pinPickUpSpots();
 
 class CommuteRoute {
     // want user information, max distance added/max time added, but for prototype, just route.
-    constructor(homeCoordinates, workCoordinates) {
+    constructor(homeCoordinates, workCoordinates, passengerCapacity) {
         this.homeCoordinates = homeCoordinates;
         this.workCoordinates = workCoordinates;
+        this.passengerCapacity = passengerCapacity;
     }
 }
-
-
-
 
 
 
@@ -186,11 +190,13 @@ async function calculateAndDisplayRoute() {
                 styles: [{ color: '#2A75D3', weight: 6, opacity: 0.85 }] 
             },
 
-            show: false // Keeps the layout clean by hiding the textual list of turn directions
+            show: false // Keeps the layout clean by hiding the text list of turn directions
         }).addTo(map);
 
         // try persisting to test
-        persistRouteToFirebase(homeCoordinates, workCoordinates);
+        let passengerCapacity = getPassengerCapacity();
+        current_route = new CommuteRoute(homeCoordinates, workCoordinates, passengerCapacity);
+        persistRouteToFirebase(current_route);
     } catch (error) {
         console.error("Error calculating/displaying route:", error);
     }
