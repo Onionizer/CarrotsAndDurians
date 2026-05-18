@@ -142,13 +142,27 @@ class CommuteRoute {
 firebase.initializeApp(FIREBASE_CONFIG);
 const db = firebase.firestore();
 
-async function persistRouteToFirebase(homeCoordinates, workCoordinates) {
+async function persistRouteToFirebase(homeCoordinates, workCoordinates, passengerCapacity) {
     console.log("Persisting route data to Firebase . . .");
 
-    const commute_route = new CommuteRoute(homeCoordinates, workCoordinates);
+    // const commute_route = new CommuteRoute(homeCoordinates, workCoordinates);
+    const firebase_doc = {
+        homeCoordinates: {
+            lat: homeCoordinates.lat,
+            lng: homeCoordinates.lng
+        },
+        workCoordinates: {
+            lat: workCoordinates.lat,
+            lng: workCoordinates.lng
+        },
+        currentPassenger: 0, // will need to update this as passengers are added
+        passengerCapacity: passengerCapacity
+    };
 
     try {
-        const docRef = await db.collection(FIREBASE_PROTOTYPE_NO_AUTH_COLLECTION).add(commute_route);
+        // need to maybe flatten out the route before adding
+        // arg needs to be JSON
+        const docRef = await db.collection(FIREBASE_PROTOTYPE_NO_AUTH_COLLECTION).add(firebase_doc);
 
     } catch (error) {
         console.error("Error saving route to Firebase:", error);
