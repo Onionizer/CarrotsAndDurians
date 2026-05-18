@@ -9,7 +9,7 @@ console.log("Setting up map . . .");
 // const map = L.map('map').setView([ 37.87, -122.27 ], 10);   // Need to move down and to the right
 // const map = L.map('map').setView([ 40.87, -125.27 ], 12); // too much ?
 // const map = L.map('map').setView([ 37.90, -122.30 ], 9);   // This is OK w/ 1000px height but need to zoom in more after reducing  to 700px.  
-const map = L.map('map').setView([ 37.90, -122.30 ], 8); 
+const map = L.map('map').setView([ 37.90, -122.30 ], 9); 
 
 const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
