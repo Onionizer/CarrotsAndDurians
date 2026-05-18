@@ -1,4 +1,4 @@
-import { FIREBASE_CONFI, FIREBASE_PROTOTYPE_NO_AUTH_COLLECTION } from "./constants.js";
+import { FIREBASE_CONFIG, FIREBASE_PROTOTYPE_NO_AUTH_COLLECTION } from "./constants.js";
 
 console.log("Setting up map . . .");
 
