@@ -1,4 +1,9 @@
+import { FIREBASE_CONFIG, FIREBASE_PROTOTYPE_NO_AUTH_COLLECTION } from "./constants.js";
+
 // Get data from Firebase, and for each one, display the route on the map, as well as the remaining passenger capacity.
+
+firebase.initializeApp(FIREBASE_CONFIG);
+const db = firebase.firestore();
 
 function fetchRoutesFromFirebase() {
     console.log("Fetching route data from Firebase . . .");
