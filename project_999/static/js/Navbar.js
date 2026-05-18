@@ -2,7 +2,7 @@ function Navbar() {
     console.log("In Navbar() . . .");
 
     return (
-        <nav className="Navbar" id="navbar">
+        <nav className="Navbar" id="navbar" role="navigation" aria-label="main navigation">
             <h1>Carpool Connector</h1>
             <ul>
                 <li><a tabIndex="0" href="#home">Home</a></li>
