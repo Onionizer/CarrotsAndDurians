@@ -11,6 +11,9 @@
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     
+    <!-- Load Bulma CSS Framework -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+
     <!-- copied from proj 8 -->
     <style>
         .App {
@@ -24,7 +27,8 @@
 
     <div id="root"></div>
 
-    <!-- add pick up spot locations -->
+    <!-- List pick up spot locations -->
+     <!-- List pick up spot locations -->
      
 
 
@@ -38,6 +42,11 @@
             return (
                 <div className="App">
                     <Navbar />
+
+                    <section>
+                        <h1 className="title">Welcome to Carpool Connector!</h1>
+                        <p className="subtitle">Your one-stop (or no-stop) solution for a smooth ride!</p>
+                    </section>
                 </div>
             );
         }
