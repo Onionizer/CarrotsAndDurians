@@ -1,6 +1,6 @@
 import { FIREBASE_CONFIG, FIREBASE_PROTOTYPE_NO_AUTH_COLLECTION, OPENROUTESERVICE_API_KEY, ROUTE_STYLE } from "./constants.js";
 
-import Openrouteservice from 'openrouteservice-js';
+// import Openrouteservice from 'openrouteservice-js';
 
 console.log("Setting up map . . .");
 
