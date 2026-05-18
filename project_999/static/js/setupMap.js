@@ -96,7 +96,6 @@ function getPassengerCapacity() {
 }
 
 
-
 // Pin the pickup spots on the map
 // Once everything is working, should store the pickup spot information elsewhere to pull it out so it can be show in dropdown or something.
 const bartPickUpSpots = [
@@ -141,7 +140,6 @@ class CommuteRoute {
 }
 
 
-
 firebase.initializeApp(FIREBASE_CONFIG);
 const db = firebase.firestore();
 
@@ -157,7 +155,6 @@ async function persistRouteToFirebase(homeCoordinates, workCoordinates) {
         console.error("Error saving route to Firebase:", error);
     }
 }
-
 
 
 const Directions = new Openrouteservice.Directions({
