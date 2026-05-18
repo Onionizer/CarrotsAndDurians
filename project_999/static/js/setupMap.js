@@ -1,8 +1,5 @@
 import { FIREBASE_CONFIG, FIREBASE_PROTOTYPE_NO_AUTH_COLLECTION, OPENROUTESERVICE_API_KEY, ROUTE_STYLE } from "./constants.js";
 
-import Openrouteservice from 'openrouteservice-js';
-
-
 console.log("Setting up map . . .");
 
 // Copied from project 2
@@ -157,7 +154,7 @@ async function persistRouteToFirebase(homeCoordinates, workCoordinates) {
 }
 
 
-const Directions = new Openrouteservice.Directions({
+const Directions = new orsSdk.Directions({
     api_key: OPENROUTESERVICE_API_KEY
 });
 
