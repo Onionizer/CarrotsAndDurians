@@ -75,8 +75,6 @@ async function textAddressToLatLong(address) {
 // ]
 
 
-// textAddressToLatLong("Walnut Creek, CA");
-
 // Break these down into smaller boxes and concat them. For now, just one box for prototyping
 async function getHomeAddress() {
     let address = document.getElementById("full-home-address").value;
@@ -90,14 +88,15 @@ async function getWorkAddress() {
 
 // Pin the pickup spots on the map
 // Once everything is working, should store the pickup spot information elsewhere to pull it out so it can be show in dropdown or something.
-const pickupSpots = [
+const bartPickUpSpots = [
     {name: "Pleasant Hill/Contra Costa Centre BART",   lat: 37.9284, lon: -122.0560},
     {name: "Walnut Creek BART",                        lat: 37.9055, lon: -122.0675},
     {name: "Lafayette BART",                           lat: 37.8931, lon: -122.1246},
     {name: "Orinda BART",                              lat: 37.8784, lon: -122.1837},
     {name: "Rockridge BART",                           lat: 37.8447, lon: -122.2513},
     {name: "12th St Oakland City Center BART",         lat: 37.8030, lon: -122.2716},
-    {name: "Lake Merritt BART",                        lat: 37.7970, lon: -122.2651}
+    {name: "Lake Merritt BART",                        lat: 37.7970, lon: -122.2651},
+    {name: "Downtown Hayward BART",                    lat: 37.6697, lon: -122.0870}
 ];
 
 // https://leafletjs.com/examples/custom-icons/
@@ -112,13 +111,44 @@ const bartTrainIcon = L.icon({
 
 
 function pinPickUpSpots() {
-    pickupSpots.forEach(pickUpSpot => {
+    bartPickUpSpots.forEach(pickUpSpot => {
         L.marker([pickUpSpot.lat, pickUpSpot.lon], {icon: bartTrainIcon})
             .addTo(map)
             .bindPopup(pickUpSpot.name);    // I can add HTML to .bindPopup() to be fancier.
     });
 }
 pinPickUpSpots();
+
+
+class CommuteRoute {
+    // want user information, max distance added/max time added, but for prototype, just route.
+    constructor(homeCoordinates, workCoordinates) {
+        this.homeCoordinates = homeCoordinates;
+        this.workCoordinates = workCoordinates;
+    }
+}
+
+
+
+
+import { FIREBASE_CONFIG } from "./constants.js";
+
+firebase.initializeApp(FIREBASE_CONFIG);
+const db = firebase.firestore();
+
+async function persistRouteToFirebase(homeCoordinates, workCoordinates) {
+    console.log("Persisting route data to Firebase . . .");
+
+    commute_route = new CommuteRoute(homeCoordinates, workCoordinates);
+
+    try {
+        const docRef = await db.collection(FIREBASE_PROTOTYPE_NO_AUTH_COLLECTION).add(commute_route);
+
+    } catch (error) {
+        console.error("Error saving route to Firebase:", error);
+    }
+}
+
 
 // Need a way to erase old routes when displaying new one
 let currentRoutingControl = null;
@@ -156,6 +186,9 @@ async function calculateAndDisplayRoute() {
 
             show: false // Keeps the layout clean by hiding the textual list of turn directions
         }).addTo(map);
+
+        // try persisting to test
+        persistRouteToFirebase(homeCoordinates, workCoordinates);
     } catch (error) {
         console.error("Error calculating/displaying route:", error);
     }
