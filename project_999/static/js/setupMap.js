@@ -145,8 +145,10 @@ async function calculateAndDisplayRoute() {
         currentRoutingControl = L.Routing.control({
             waypoints: [homeCoordinates, workCoordinates],
             // Set up OpenRouteService
-            router: L.Routing.openrouteservice('eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6IjM4ZTEwZDU4MzhmNzRmNDNiNmVmMDc3ZDEzZTk0ODY1IiwiaCI6Im11cm11cjY0In0=', {
-                profile: 'driving-car'
+            router: L.Routing.OpenRouteService('eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6IjM4ZTEwZDU4MzhmNzRmNDNiNmVmMDc3ZDEzZTk0ODY1IiwiaCI6Im11cm11cjY0In0=', {
+                // do I need to specify format: json?
+                profile: 'driving-car',
+                api_version: 'v2' 
             }),
             lineOptions: {
                 styles: [{ color: '#2A75D3', weight: 6, opacity: 0.85 }] 
