@@ -228,8 +228,8 @@ async function calculateAndDisplayRoute() {
 
         // try persisting to test
         let passengerCapacity = getPassengerCapacity();
-        let current_route = new CommuteRoute(homeCoordinates, workCoordinates, passengerCapacity);
-        persistRouteToFirebase(current_route);
+        // let current_route = new CommuteRoute(homeCoordinates, workCoordinates, passengerCapacity);
+        persistRouteToFirebase(homeCoordinates, workCoordinates, passengerCapacity);
     } catch (error) {
         console.error("Error calculating/displaying route:", error);
     }
