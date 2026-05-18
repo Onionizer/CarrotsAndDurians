@@ -1,3 +1,5 @@
+import { FIREBASE_CONFI, FIREBASE_PROTOTYPE_NO_AUTH_COLLECTION } from "./constants.js";
+
 console.log("Setting up map . . .");
 
 // Copied from project 2
@@ -131,7 +133,7 @@ class CommuteRoute {
 
 
 
-import { FIREBASE_CONFIG } from "./constants.js";
+
 
 firebase.initializeApp(FIREBASE_CONFIG);
 const db = firebase.firestore();
@@ -139,7 +141,7 @@ const db = firebase.firestore();
 async function persistRouteToFirebase(homeCoordinates, workCoordinates) {
     console.log("Persisting route data to Firebase . . .");
 
-    commute_route = new CommuteRoute(homeCoordinates, workCoordinates);
+    const commute_route = new CommuteRoute(homeCoordinates, workCoordinates);
 
     try {
         const docRef = await db.collection(FIREBASE_PROTOTYPE_NO_AUTH_COLLECTION).add(commute_route);
