@@ -164,7 +164,7 @@ async function persistRouteToFirebase(homeCoordinates, workCoordinates, passenge
         // need to maybe flatten out the route before adding
         // arg needs to be JSON
         const docRef = await db.collection(FIREBASE_PROTOTYPE_NO_AUTH_COLLECTION).add(firebase_doc);
-
+        console.log(docRef.id, " => ", firebase_doc);
     } catch (error) {
         console.error("Error saving route to Firebase:", error);
     }
