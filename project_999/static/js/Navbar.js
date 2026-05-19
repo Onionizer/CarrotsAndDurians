@@ -3,12 +3,11 @@ function Navbar() {
 
     return (
         <nav className="Navbar" id="navbar" role="navigation" aria-label="main navigation">
-            <h1>Carpool Connector</h1>
-            <ul>
-                <li><a tabIndex="0" href="index.html">Home</a></li>
-                <li><a tabIndex="0" href="rides.html">Find Rides</a></li>
-                <li><a tabIndex="0" href="profile.html">Profile / Register Route</a></li>
-            </ul>
+            <div className="navbar-start">
+                <a className="navbar-item" href="index.html" tabIndex="0">Carpool Connector - Home</a>
+                <a className="navbar-item" href="rides.html" tabIndex="0">Search Rides</a>
+                <a className="navbar-item" href="profile.html" tabIndex="0">View & Register Route</a>
+            </div>
         </nav>
     );
 }
