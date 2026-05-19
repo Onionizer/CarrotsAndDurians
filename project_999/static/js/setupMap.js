@@ -86,7 +86,7 @@ pinPickUpSpots();
 
 
 firebase.initializeApp(FIREBASE_CONFIG);
-const db = firebase.firestore();
+const db = firebase.app().firestore("carpool-connector-routes");
 if (!db) {
     console.error("db firestore not initialized properly");
 }
