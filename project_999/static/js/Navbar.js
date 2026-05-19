@@ -9,7 +9,6 @@ function Navbar() {
                 </div>
                 <div className="navbar-menu is-active">
                     <div className="navbar-start">
-                        <a className="navbar-item" href="index.html">Home</a>
                         <a className="navbar-item" href="rides.html">Search Rides</a>
                         <a className="navbar-item" href="profile.html">Register Route</a>
                     </div>
