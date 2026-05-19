@@ -11,25 +11,26 @@ async function fetchRoutesFromFirebaseAndRender() {
     
     // For each one, create a row.  
     // Need to create a mini map for route.  Just assume center is the same for all?
-    const querySnapshot = await db.collection(FIREBASE_PROTOTYPE_NO_AUTH_COLLECTION).get();
-
+    
     let ridesDiv = document.querySelector('#rides_div'); 
     ridesDiv.innerHTML = '';
 
-    for (let doc of querySnapshot) {
+    // querySnapshot itself is not iterable 
+    const querySnapshot = await db.collection(FIREBASE_PROTOTYPE_NO_AUTH_COLLECTION).get();
+    for (let doc of querySnapshot.docs) {
         console.log(doc.id, " => ", doc.data());
         let singleRideDiv = createRideDiv(doc.data());
         ridesDiv.appendChild(singleRideDiv);
     }
 
-    db.collection(FIREBASE_PROTOTYPE_NO_AUTH_COLLECTION).get()
-        .then((querySnapshot) => {
-            console.log("Testing Firestore Connection...");
-            querySnapshot.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
-            });
-        })
-        .catch(err => console.error("Firebase fetch failed:", err));
+    // db.collection(FIREBASE_PROTOTYPE_NO_AUTH_COLLECTION).get()
+    //     .then((querySnapshot) => {
+    //         console.log("Testing Firestore Connection...");
+    //         querySnapshot.forEach((doc) => {
+    //             console.log(doc.id, " => ", doc.data());
+    //         });
+    //     })
+    //     .catch(err => console.error("Firebase fetch failed:", err));
 }
 
 
