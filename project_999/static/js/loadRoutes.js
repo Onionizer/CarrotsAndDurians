@@ -33,31 +33,30 @@ async function fetchRoutesFromFirebaseAndRender() {
 }
 
 
-function createRideDiv(ride) {
+    // const firebase_doc = {
+    //     homeCoordinates: {
+    //         lat: homeCoordinates.lat,
+    //         lng: homeCoordinates.lng
+    //     },
+    //     workCoordinates: {
+    //         lat: workCoordinates.lat,
+    //         lng: workCoordinates.lng
+    //     },
+    //     currentPassenger: 0, // will need to update this as passengers are added
+    //     passengerCapacity: passengerCapacity
+    // };
+function createRideDiv(firebaseDocData) {
     let singleRideDiv = document.createElement('div');
     singleRideDiv.classList.add("Rides-ride");
-    singleRideDiv.innerHTML = '';
+    singleRideDiv.innerHTML = 
+        `   <div class="Ride-details">
+                <strong>Home:</strong> ${firebaseDocData.homeCoordinates.lat}, ${firebaseDocData.homeCoordinates.lng}<br>
+                <strong>Work:</strong> ${firebaseDocData.workCoordinates.lat}, ${firebaseDocData.workCoordinates.lng}<br>
+            </div>`;
     return singleRideDiv;
 }
 
 
-function createBookDiv(book) {
-    let singleBookDiv  = document.createElement('div');
-    singleBookDiv.classList.add("Books-book");
-    singleBookDiv.innerHTML = 
-        `   <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" alt="cover">
-            <div class="Books-book-details">
-                <div class="Books-book-title">${book.title}</div>
-                <strong>Author:</strong> ${book.author_name[0]}<br>
-                <strong>Language:</strong> ${book.language}<br>
-                <strong>Year Published:</strong> ${book.first_publish_year}<br>
-            </div>
-            `
-    ;
-    return singleBookDiv;
-}
 
-
-
-
+// Need to attach this to button with even listener
 fetchRoutesFromFirebaseAndRender();
