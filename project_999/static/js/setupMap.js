@@ -86,7 +86,8 @@ pinPickUpSpots();
 
 
 firebase.initializeApp(FIREBASE_CONFIG);
-const db = firebase.app().firestore(FIRESTORE_NAME);
+// const db = firebase.app().firestore(FIRESTORE_NAME);
+const db = firebase.firestore();
 if (!db) {
     console.error("db firestore not initialized properly");
 }
