@@ -9,6 +9,7 @@ export const FIREBASE_CONFIG = {
   measurementId: "G-13MXP1PFWW"
 };
 
+export const FIRESTORE_NAME = "carpool-connector-routes";
 export const FIREBASE_PROTOTYPE_NO_AUTH_COLLECTION = "commuter_routes_no_auth";  // Name for prototype - no authentication for this one
 
 // Need to secure this.
