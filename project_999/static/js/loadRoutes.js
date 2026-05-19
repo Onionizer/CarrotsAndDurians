@@ -58,6 +58,5 @@ function createRideDiv(firebaseDocData) {
 }
 
 
-
-// Need to attach this to button with even listener
+document.getElementById("load-route-button").addEventListener("click", fetchRoutesFromFirebaseAndRender);
 fetchRoutesFromFirebaseAndRender();
