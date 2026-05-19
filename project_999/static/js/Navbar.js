@@ -1,12 +1,19 @@
 function Navbar() {
-    // console.log("In Navbar() . . .");
-
     return (
-        <nav className="Navbar" id="navbar" role="navigation" aria-label="main navigation">
-            <div className="navbar-start">
-                <a className="navbar-item" href="index.html" tabIndex="0">Carpool Connector - Home</a>
-                <a className="navbar-item" href="rides.html" tabIndex="0">Search Rides</a>
-                <a className="navbar-item" href="profile.html" tabIndex="0">View & Register Route</a>
+        <nav className="navbar is-dark" role="navigation" aria-label="main navigation">
+            <div className="container">
+                <div className="navbar-brand">
+                    <a className="navbar-item has-text-weight-bold" href="index.html">
+                        Carpool Connector
+                    </a>
+                </div>
+                <div className="navbar-menu is-active">
+                    <div className="navbar-start">
+                        <a className="navbar-item" href="index.html">Home</a>
+                        <a className="navbar-item" href="rides.html">Search Rides</a>
+                        <a className="navbar-item" href="profile.html">Register Route</a>
+                    </div>
+                </div>
             </div>
         </nav>
     );
