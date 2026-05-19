@@ -85,14 +85,16 @@
                 <label for="home-street-address">Street Address</label>
                 <input type="text" id="home-street-address" name="home-street-address" placeholder="Street address">
                 
-                
+                <!-- Group rest of the address fields -->
                 <div class="field is-grouped">
-                    <input type="text" id="home-city" name="home-street-address" placeholder="Berkeley">
+                    <!-- what does is-expanded do? -->
+                    <div class="is-expanded">   
+                        <input type="text" id="home-city" name="home-street-address" placeholder="Berkeley">
+                    </div>
                     <input type="text" id="home-state" name="home-state" placeholder="CA">
                     <input type="text" id="home-zip-code" name="home-zip-code" placeholder="94720">
                 </div>
 
-                
                 
             </div>
 
