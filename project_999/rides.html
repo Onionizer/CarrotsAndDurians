@@ -35,8 +35,6 @@
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    
-    </style>
 </head>
 <body>
 
@@ -50,7 +48,7 @@
       
         function App() {
             return (
-                <div className="App">
+                <div>
                     <Navbar />
                 </div>
             );
@@ -59,26 +57,30 @@
         root.render(<App />);
     </script>
 
-    <table class="table is-bordered is-fullwidth">
-        <thead>
-            <tr>
-                <th>Home</th>
-                <th>Work</th>
-                <th>Route Preview</th>
-                <th>Passenger Space</th>
-            </tr>
-            <tbody id="rides-table-body">
-                
-            </tbody>
-        </thead>
-    </table>
+    <div class="section">
+        <div class="container">
+            <h1 class="title">Search Rides</h1>
+            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                <thead>
+                    <tr>
+                        <th>Home</th>
+                        <th>Work</th>
+                        <th>Route Preview</th>
+                        <th>Passenger Space</th>
+                    </tr>
+                </thead>
+                <tbody id="rides-table-body">
+                </tbody>
+            </table>
 
-    <!-- Just temp div like LotR book search engine -->
-    <div id="rides_div"></div>
+            <!-- Just temp div like LotR book search engine -->
+            <div id="rides_div"></div>
 
-    <button class="is-outlined" id="load-route-button" type="button">
-        Load routes
-    </button>
+            <button class="button is-primary is-outlined" id="load-route-button" type="button">
+                Load routes
+            </button>
+        </div>
+    </div>
 
     <!-- Want filter here, or dropdown for pickup locations -->
     <script type="module" src="./static/js/loadRoutes.js"></script>
