@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+body {
+  background: url('./assets/prism.png');
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App,
+.kc-Button,
+.kc-Input,
+.kc-Card {
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+.App {
+    /*background: linear-gradient(to right, #d6ae7b, #eacda3);*/
+    background: url('./assets/prism.png');
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 1200px) 1fr;
+    grid-template-rows: 120px auto;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    align-items: stretch;
+}
+
+.App-mainContent {
+    grid-column: 2;
+}
+

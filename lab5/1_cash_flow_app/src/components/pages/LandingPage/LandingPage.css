@@ -1,0 +1,15 @@
+.LandingPage {
+  text-align: center;
+}
+
+.LandingPage-header {
+  margin-top: 10vh;
+  min-height: 70vh;
+  font-size: calc(20px + 2vmin);
+  color: black;
+  color: white;
+}
+
+.LandingPage-logo {
+  max-height: 200px;
+}

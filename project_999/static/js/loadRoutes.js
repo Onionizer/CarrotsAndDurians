@@ -57,6 +57,6 @@ function createRideDiv(firebaseDocData) {
     return singleRideDiv;
 }
 
-
+     
 document.getElementById("load-route-button").addEventListener("click", fetchRoutesFromFirebaseAndRender);
 fetchRoutesFromFirebaseAndRender();

@@ -1,0 +1,807 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders snapshot with default calc list 1`] = `
+<div
+  className="CalcList"
+>
+  <div
+    className="CalcList-list"
+  >
+    <div
+      className="Calc"
+    >
+      <div
+        className="kc-Card kc-Card--default kc-Card--medium kc-Card--toweringDepth kc-Card--square"
+      >
+        <div
+          className="Calc-type"
+        />
+        <div
+          className="Calc-label"
+        >
+          <input
+            className="kc-Input kc-Input--default kc-Input--medium kc-Input--mediumDepth kc-Input--square kc-Input--flat"
+            flat="flat"
+            onChange={[Function]}
+            value="Starting cash"
+          />
+          <div
+            className="kc-Card kc-Card--success kc-Card--small kc-Card--mediumDepth kc-Card--square kc-Card--inset"
+          >
+            INCOME
+          </div>
+        </div>
+        <div
+          className="Calc-value"
+        >
+          <input
+            className="kc-Input kc-Input--default kc-Input--medium kc-Input--mediumDepth kc-Input--square kc-Input--flat"
+            flat="flat"
+            onChange={[Function]}
+            style={
+              Object {
+                "width": "100px",
+              }
+            }
+            value={1200}
+          />
+          once
+          <div
+            className="kc-Button kc-Button--default kc-Button--small kc-Button--shallowDepth kc-Button--square"
+            onClick={[Function]}
+          >
+            <div
+              className="kc-Button-contentsWrapper"
+            >
+              <span
+                aria-label="Icon"
+                className="kc-Button-icon "
+                role="img"
+              >
+                ☐
+              </span>
+              <div
+                className="kc-Button-childrenWrapper"
+              >
+                <svg
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": undefined,
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="kc-Dropdown-placementWrapper kc-Dropdown--downward"
+      >
+        <div
+          className="kc-Dropdown-outerWrapper kc-Dropdown--square kc-Dropdown--hidden"
+        >
+          <div
+            className="kc-Dropdown kc-Dropdown--default kc-Dropdown--medium kc-Dropdown--mediumDepth kc-Dropdown--square"
+            style={
+              Object {
+                "width": "450px",
+              }
+            }
+          >
+            <div
+              className="kc-Button kc-Button--default kc-Button--medium kc-Button--mediumDepth kc-Button--square kc-Button--depressed"
+              onClick={[Function]}
+            >
+              <div
+                className="kc-Button-contentsWrapper"
+              >
+                <span
+                  aria-label="Icon"
+                  className="kc-Button-icon "
+                  role="img"
+                >
+                  ☑
+                </span>
+                <div
+                  className="kc-Button-childrenWrapper"
+                >
+                  Once
+                </div>
+              </div>
+            </div>
+            <div
+              className="kc-Button kc-Button--default kc-Button--medium kc-Button--mediumDepth kc-Button--square"
+              onClick={[Function]}
+            >
+              <div
+                className="kc-Button-contentsWrapper"
+              >
+                <span
+                  aria-label="Icon"
+                  className="kc-Button-icon "
+                  role="img"
+                >
+                  ☐
+                </span>
+                <div
+                  className="kc-Button-childrenWrapper"
+                >
+                  Daily
+                </div>
+              </div>
+            </div>
+            <div
+              className="kc-Button kc-Button--default kc-Button--medium kc-Button--mediumDepth kc-Button--square"
+              onClick={[Function]}
+            >
+              <div
+                className="kc-Button-contentsWrapper"
+              >
+                <span
+                  aria-label="Icon"
+                  className="kc-Button-icon "
+                  role="img"
+                >
+                  ☐
+                </span>
+                <div
+                  className="kc-Button-childrenWrapper"
+                >
+                  Weekly
+                </div>
+              </div>
+            </div>
+            <div
+              className="kc-Button kc-Button--default kc-Button--medium kc-Button--mediumDepth kc-Button--square"
+              onClick={[Function]}
+            >
+              <div
+                className="kc-Button-contentsWrapper"
+              >
+                <span
+                  aria-label="Icon"
+                  className="kc-Button-icon "
+                  role="img"
+                >
+                  ☐
+                </span>
+                <div
+                  className="kc-Button-childrenWrapper"
+                >
+                  Twice a month
+                </div>
+              </div>
+            </div>
+            <div
+              className="kc-Button kc-Button--default kc-Button--medium kc-Button--mediumDepth kc-Button--square"
+              onClick={[Function]}
+            >
+              <div
+                className="kc-Button-contentsWrapper"
+              >
+                <span
+                  aria-label="Icon"
+                  className="kc-Button-icon "
+                  role="img"
+                >
+                  ☐
+                </span>
+                <div
+                  className="kc-Button-childrenWrapper"
+                >
+                  Monthly
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div
+              className="kc-Button kc-Button--danger kc-Button--small kc-Button--mediumDepth kc-Button--square"
+              onClick={[Function]}
+            >
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                />
+              </svg>
+               Remove
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="Calc"
+    >
+      <div
+        className="kc-Card kc-Card--default kc-Card--medium kc-Card--toweringDepth kc-Card--square"
+      >
+        <div
+          className="Calc-type"
+        />
+        <div
+          className="Calc-label"
+        >
+          <input
+            className="kc-Input kc-Input--default kc-Input--medium kc-Input--mediumDepth kc-Input--square kc-Input--flat"
+            flat="flat"
+            onChange={[Function]}
+            value="paycheck"
+          />
+          <div
+            className="kc-Card kc-Card--success kc-Card--small kc-Card--mediumDepth kc-Card--square kc-Card--inset"
+          >
+            INCOME
+          </div>
+        </div>
+        <div
+          className="Calc-value"
+        >
+          <input
+            className="kc-Input kc-Input--default kc-Input--medium kc-Input--mediumDepth kc-Input--square kc-Input--flat"
+            flat="flat"
+            onChange={[Function]}
+            style={
+              Object {
+                "width": "100px",
+              }
+            }
+            value={2300}
+          />
+          twice a month
+          <div
+            className="kc-Button kc-Button--default kc-Button--small kc-Button--shallowDepth kc-Button--square"
+            onClick={[Function]}
+          >
+            <div
+              className="kc-Button-contentsWrapper"
+            >
+              <span
+                aria-label="Icon"
+                className="kc-Button-icon "
+                role="img"
+              >
+                ☐
+              </span>
+              <div
+                className="kc-Button-childrenWrapper"
+              >
+                <svg
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": undefined,
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="kc-Dropdown-placementWrapper kc-Dropdown--downward"
+      >
+        <div
+          className="kc-Dropdown-outerWrapper kc-Dropdown--square kc-Dropdown--hidden"
+        >
+          <div
+            className="kc-Dropdown kc-Dropdown--default kc-Dropdown--medium kc-Dropdown--mediumDepth kc-Dropdown--square"
+            style={
+              Object {
+                "width": "450px",
+              }
+            }
+          >
+            <div
+              className="kc-Button kc-Button--default kc-Button--medium kc-Button--mediumDepth kc-Button--square"
+              onClick={[Function]}
+            >
+              <div
+                className="kc-Button-contentsWrapper"
+              >
+                <span
+                  aria-label="Icon"
+                  className="kc-Button-icon "
+                  role="img"
+                >
+                  ☐
+                </span>
+                <div
+                  className="kc-Button-childrenWrapper"
+                >
+                  Once
+                </div>
+              </div>
+            </div>
+            <div
+              className="kc-Button kc-Button--default kc-Button--medium kc-Button--mediumDepth kc-Button--square"
+              onClick={[Function]}
+            >
+              <div
+                className="kc-Button-contentsWrapper"
+              >
+                <span
+                  aria-label="Icon"
+                  className="kc-Button-icon "
+                  role="img"
+                >
+                  ☐
+                </span>
+                <div
+                  className="kc-Button-childrenWrapper"
+                >
+                  Daily
+                </div>
+              </div>
+            </div>
+            <div
+              className="kc-Button kc-Button--default kc-Button--medium kc-Button--mediumDepth kc-Button--square"
+              onClick={[Function]}
+            >
+              <div
+                className="kc-Button-contentsWrapper"
+              >
+                <span
+                  aria-label="Icon"
+                  className="kc-Button-icon "
+                  role="img"
+                >
+                  ☐
+                </span>
+                <div
+                  className="kc-Button-childrenWrapper"
+                >
+                  Weekly
+                </div>
+              </div>
+            </div>
+            <div
+              className="kc-Button kc-Button--default kc-Button--medium kc-Button--mediumDepth kc-Button--square kc-Button--depressed"
+              onClick={[Function]}
+            >
+              <div
+                className="kc-Button-contentsWrapper"
+              >
+                <span
+                  aria-label="Icon"
+                  className="kc-Button-icon "
+                  role="img"
+                >
+                  ☑
+                </span>
+                <div
+                  className="kc-Button-childrenWrapper"
+                >
+                  Twice a month
+                </div>
+              </div>
+            </div>
+            <div
+              className="kc-Button kc-Button--default kc-Button--medium kc-Button--mediumDepth kc-Button--square"
+              onClick={[Function]}
+            >
+              <div
+                className="kc-Button-contentsWrapper"
+              >
+                <span
+                  aria-label="Icon"
+                  className="kc-Button-icon "
+                  role="img"
+                >
+                  ☐
+                </span>
+                <div
+                  className="kc-Button-childrenWrapper"
+                >
+                  Monthly
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div
+              className="kc-Button kc-Button--danger kc-Button--small kc-Button--mediumDepth kc-Button--square"
+              onClick={[Function]}
+            >
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                />
+              </svg>
+               Remove
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="Calc"
+    >
+      <div
+        className="kc-Card kc-Card--default kc-Card--medium kc-Card--toweringDepth kc-Card--square"
+      >
+        <div
+          className="Calc-type"
+        />
+        <div
+          className="Calc-label"
+        >
+          <input
+            className="kc-Input kc-Input--default kc-Input--medium kc-Input--mediumDepth kc-Input--square kc-Input--flat"
+            flat="flat"
+            onChange={[Function]}
+            value="rent"
+          />
+          <div
+            className="kc-Card kc-Card--danger kc-Card--small kc-Card--mediumDepth kc-Card--square kc-Card--inset"
+          >
+            EXPENSE
+          </div>
+        </div>
+        <div
+          className="Calc-value"
+        >
+          <input
+            className="kc-Input kc-Input--default kc-Input--medium kc-Input--mediumDepth kc-Input--square kc-Input--flat"
+            flat="flat"
+            onChange={[Function]}
+            style={
+              Object {
+                "width": "100px",
+              }
+            }
+            value={2000}
+          />
+          monthly
+          <div
+            className="kc-Button kc-Button--default kc-Button--small kc-Button--shallowDepth kc-Button--square"
+            onClick={[Function]}
+          >
+            <div
+              className="kc-Button-contentsWrapper"
+            >
+              <span
+                aria-label="Icon"
+                className="kc-Button-icon "
+                role="img"
+              >
+                ☐
+              </span>
+              <div
+                className="kc-Button-childrenWrapper"
+              >
+                <svg
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": undefined,
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="kc-Dropdown-placementWrapper kc-Dropdown--downward"
+      >
+        <div
+          className="kc-Dropdown-outerWrapper kc-Dropdown--square kc-Dropdown--hidden"
+        >
+          <div
+            className="kc-Dropdown kc-Dropdown--default kc-Dropdown--medium kc-Dropdown--mediumDepth kc-Dropdown--square"
+            style={
+              Object {
+                "width": "450px",
+              }
+            }
+          >
+            <div
+              className="kc-Button kc-Button--default kc-Button--medium kc-Button--mediumDepth kc-Button--square"
+              onClick={[Function]}
+            >
+              <div
+                className="kc-Button-contentsWrapper"
+              >
+                <span
+                  aria-label="Icon"
+                  className="kc-Button-icon "
+                  role="img"
+                >
+                  ☐
+                </span>
+                <div
+                  className="kc-Button-childrenWrapper"
+                >
+                  Once
+                </div>
+              </div>
+            </div>
+            <div
+              className="kc-Button kc-Button--default kc-Button--medium kc-Button--mediumDepth kc-Button--square"
+              onClick={[Function]}
+            >
+              <div
+                className="kc-Button-contentsWrapper"
+              >
+                <span
+                  aria-label="Icon"
+                  className="kc-Button-icon "
+                  role="img"
+                >
+                  ☐
+                </span>
+                <div
+                  className="kc-Button-childrenWrapper"
+                >
+                  Daily
+                </div>
+              </div>
+            </div>
+            <div
+              className="kc-Button kc-Button--default kc-Button--medium kc-Button--mediumDepth kc-Button--square"
+              onClick={[Function]}
+            >
+              <div
+                className="kc-Button-contentsWrapper"
+              >
+                <span
+                  aria-label="Icon"
+                  className="kc-Button-icon "
+                  role="img"
+                >
+                  ☐
+                </span>
+                <div
+                  className="kc-Button-childrenWrapper"
+                >
+                  Weekly
+                </div>
+              </div>
+            </div>
+            <div
+              className="kc-Button kc-Button--default kc-Button--medium kc-Button--mediumDepth kc-Button--square"
+              onClick={[Function]}
+            >
+              <div
+                className="kc-Button-contentsWrapper"
+              >
+                <span
+                  aria-label="Icon"
+                  className="kc-Button-icon "
+                  role="img"
+                >
+                  ☐
+                </span>
+                <div
+                  className="kc-Button-childrenWrapper"
+                >
+                  Twice a month
+                </div>
+              </div>
+            </div>
+            <div
+              className="kc-Button kc-Button--default kc-Button--medium kc-Button--mediumDepth kc-Button--square kc-Button--depressed"
+              onClick={[Function]}
+            >
+              <div
+                className="kc-Button-contentsWrapper"
+              >
+                <span
+                  aria-label="Icon"
+                  className="kc-Button-icon "
+                  role="img"
+                >
+                  ☑
+                </span>
+                <div
+                  className="kc-Button-childrenWrapper"
+                >
+                  Monthly
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div
+              className="kc-Button kc-Button--danger kc-Button--small kc-Button--mediumDepth kc-Button--square"
+              onClick={[Function]}
+            >
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                />
+              </svg>
+               Remove
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="CalcList-buttonGroup"
+  >
+    <div
+      className="kc-Button kc-Button--success kc-Button--medium kc-Button--mediumDepth kc-Button--square"
+      onClick={[Function]}
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+        />
+      </svg>
+       Income
+    </div>
+    <div
+      className="kc-Button kc-Button--danger kc-Button--medium kc-Button--mediumDepth kc-Button--square"
+      onClick={[Function]}
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+        />
+      </svg>
+        Expense
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders snapshot with empty props 1`] = `
+<div
+  className="CalcList"
+>
+  <div
+    className="CalcList-list"
+  />
+  <div
+    className="CalcList-buttonGroup"
+  >
+    <div
+      className="kc-Button kc-Button--success kc-Button--medium kc-Button--mediumDepth kc-Button--square"
+      onClick={[Function]}
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+        />
+      </svg>
+       Income
+    </div>
+    <div
+      className="kc-Button kc-Button--danger kc-Button--medium kc-Button--mediumDepth kc-Button--square"
+      onClick={[Function]}
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+        />
+      </svg>
+        Expense
+    </div>
+  </div>
+</div>
+`;
