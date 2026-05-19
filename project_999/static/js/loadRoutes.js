@@ -36,14 +36,7 @@ async function fetchRoutesFromFirebaseAndRender() {
 function createRideDiv(ride) {
     let singleRideDiv = document.createElement('div');
     singleRideDiv.classList.add("Rides-ride");
-    singleRideDiv.innerHTML = 
-        `   <div class="Rides-ride-details">
-                <div class="Rides-ride-title">${ride.name}</div>
-                <strong>Driver:</strong> ${ride.driver}<br>
-                <strong>Capacity:</strong> ${ride.capacity}<br>
-            </div>
-            `
-    ;
+    singleRideDiv.innerHTML = '';
     return singleRideDiv;
 }
 
