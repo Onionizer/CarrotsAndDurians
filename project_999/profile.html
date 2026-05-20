@@ -123,17 +123,44 @@
                 </div>
             </div>
         </section>
+
+        <section class="address-card column card">
+            <h2 class="is-2 has-text-centered">Driver Info</h2>
+
+            <div class="Address-field">
+                <div class="field">
+                    <label class="label" for="vehicle-make">Vehicle Make & Model</label>
+                    <div class="control">
+                        <input class="input" type="text" id="vehicle-make" name="vehicle-make" placeholder="Hyundai Sonata">
+                    </div>
+                </div>
+                
+                <div class="field is-grouped">
+                    <div class="control is-expanded">   
+                        <label class="label" for="vehicle-color">Color</label>
+                        <input class="input" type="text" id="vehicle-color" name="vehicle-color" placeholder="Silver">
+                    </div>
+                    <div class="control is-expanded">
+                        <label class="label" for="license-plate">License Plate</label>
+                        <input class="input" type="text" id="license-plate" name="license-plate" placeholder="7ABC1234">
+                    </div>
+                </div>
+
+                <div class="field is-grouped is-align-items-center">
+                    <div class="control">
+                        <label class="label" for="passenger-capacity">Passenger Capacity</label>
+                    </div>
+                    <div class="control">
+                        <input class="input" type="number" id="passenger-capacity" name="passenger-capacity" placeholder="3">
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <!-- Map and buttons? -->
     <div class="Map-container section">
         <div class="field is-grouped is-grouped-centered is-align-items-center">
-            <div class="control">
-                <label class="label" for="passenger-capacity">Passenger Capacity</label>
-            </div>
-            <div class="control">
-                <input class="input" type="number" id="passenger-capacity" name="passenger-capacity" placeholder="3" style="width: 100px;">
-            </div>
             <div class="control">
                 <button class="button is-primary is-outlined" id="show-route-button" type="button">
                     Show & register route
