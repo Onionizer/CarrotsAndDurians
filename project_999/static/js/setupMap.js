@@ -102,10 +102,9 @@ if (!db) {
 }
 
 
-async function persistRouteToFirebase(homeCoordinates, workCoordinates, passengerCapacity) {
+async function persistRouteToFirebase(homeCoordinates, workCoordinates, passengerCapacity, homeCity, homeState, workCity, workState) {
     console.log("Persisting route data to Firebase . . .");
 
-    // const commute_route = new CommuteRoute(homeCoordinates, workCoordinates);
     const firebase_doc = {
         homeCoordinates: {
             lat: homeCoordinates.lat,
@@ -115,13 +114,15 @@ async function persistRouteToFirebase(homeCoordinates, workCoordinates, passenge
             lat: workCoordinates.lat,
             lng: workCoordinates.lng
         },
-        currentPassenger: 0, // will need to update this as passengers are added
+        homeCity: homeCity,
+        homeState: homeState,
+        workCity: workCity,
+        workState: workState,
+        currentPassenger: 0, 
         passengerCapacity: passengerCapacity
     };
 
     try {
-        // need to maybe flatten out the route before adding
-        // arg needs to be JSON
         const docRef = await db.collection(FIREBASE_PROTOTYPE_NO_AUTH_COLLECTION).add(firebase_doc);
         console.log(docRef.id, " => ", firebase_doc);
     } catch (error) {
@@ -139,14 +140,17 @@ let currentRoutingControl = null;
 async function calculateAndDisplayRoute() {
     console.log("Calculating and displaying route . . .");
 
-    //  prob easier to just have one box for now 
     const homeCoordinates = await getHomeAddress();
-    // const homeCoordinates = await textAddressToLatLong("UC Berkeley, CA");
     console.log("Home address lat/long:", homeCoordinates);
     
     const workCoordinates = await getWorkAddress();
-    // const workCoordinates = await textAddressToLatLong("Downtown Redwood City, CA");
     console.log("Work address lat/long:", workCoordinates);
+
+    // Get city and state for persistence
+    const homeCity = document.getElementById("home-city").value;
+    const homeState = document.getElementById("home-state").value;
+    const workCity = document.getElementById("work-city").value;
+    const workState = document.getElementById("work-state").value;
 
     try {
         // Need to remove old route
@@ -157,7 +161,6 @@ async function calculateAndDisplayRoute() {
 
         const json = await Directions.calculate({
             coordinates: [
-                // V2 expects [Longitude, Latitude], Leaflet expects [Latitude, Longitude]. 
                 [homeCoordinates.lng, homeCoordinates.lat], 
                 [workCoordinates.lng, workCoordinates.lat]
             ],
@@ -169,26 +172,8 @@ async function calculateAndDisplayRoute() {
             style: ROUTE_STYLE
         }).addTo(map);
 
-
-        // currentRoutingControl = L.Routing.control({
-        //     waypoints: [homeCoordinates, workCoordinates],
-        //     // Set up OpenRouteService
-        //     router: L.Routing.openrouteserviceV2('eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6IjM4ZTEwZDU4MzhmNzRmNDNiNmVmMDc3ZDEzZTk0ODY1IiwiaCI6Im11cm11cjY0In0=', {
-        //         // do I need to specify format: json?
-        //         profile: 'driving-car',
-        //         api_version: 'v2' 
-        //     }),
-        //     lineOptions: {
-        //         styles: [{ color: '#2A75D3', weight: 6, opacity: 0.85 }] 
-        //     },
-
-        //     show: false // Keeps the layout clean by hiding the text list of turn directions
-        // }).addTo(map);
-
-        // try persisting to test
         let passengerCapacity = getPassengerCapacity();
-        // let current_route = new CommuteRoute(homeCoordinates, workCoordinates, passengerCapacity);
-        persistRouteToFirebase(homeCoordinates, workCoordinates, passengerCapacity);
+        persistRouteToFirebase(homeCoordinates, workCoordinates, passengerCapacity, homeCity, homeState, workCity, workState);
     } catch (error) {
         console.error("Error calculating/displaying route:", error);
     }
