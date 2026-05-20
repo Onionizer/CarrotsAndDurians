@@ -34,13 +34,22 @@ async function textAddressToLatLong(address) {
 }
 
 
-// Break these down into smaller boxes and concat them. For now, just one box for prototyping
 async function getHomeAddress() {
-    let address = document.getElementById("full-home-address").value;
+    let street = document.getElementById("home-street-address").value;
+    let city = document.getElementById("home-city").value;
+    let state = document.getElementById("home-state").value;
+    let zip = document.getElementById("home-zip-code").value;
+    
+    let address = `${street}, ${city}, ${state} ${zip}`;
     return await textAddressToLatLong(address);
 }
 async function getWorkAddress() {
-    let address = document.getElementById("full-work-address").value;
+    let street = document.getElementById("work-street-address").value;
+    let city = document.getElementById("work-city").value;
+    let state = document.getElementById("work-state").value;
+    let zip = document.getElementById("work-zip-code").value;
+    
+    let address = `${street}, ${city}, ${state} ${zip}`;
     return await textAddressToLatLong(address);
 }
 
