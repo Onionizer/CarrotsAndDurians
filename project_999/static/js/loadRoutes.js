@@ -9,54 +9,31 @@ const db = firebase.firestore();
 async function fetchRoutesFromFirebaseAndRender() {
     console.log("Fetching route data from Firebase . . .");
     
-    // For each one, create a row.  
-    // Need to create a mini map for route.  Just assume center is the same for all?
-    
-    let ridesDiv = document.querySelector('#rides_div'); 
-    ridesDiv.innerHTML = '';
+    let tableBody = document.querySelector('#rides-table-body'); 
+    tableBody.innerHTML = '';
 
-    // querySnapshot itself is not iterable 
     const querySnapshot = await db.collection(FIREBASE_PROTOTYPE_NO_AUTH_COLLECTION).get();
-    for (let doc of querySnapshot.docs) {
+    querySnapshot.forEach((doc) => {
         console.log(doc.id, " => ", doc.data());
-        let singleRideDiv = createRideDiv(doc.data());
-        ridesDiv.appendChild(singleRideDiv);
-    }
-
-    // db.collection(FIREBASE_PROTOTYPE_NO_AUTH_COLLECTION).get()
-    //     .then((querySnapshot) => {
-    //         console.log("Testing Firestore Connection...");
-    //         querySnapshot.forEach((doc) => {
-    //             console.log(doc.id, " => ", doc.data());
-    //         });
-    //     })
-    //     .catch(err => console.error("Firebase fetch failed:", err));
+        let row = createRideRow(doc.id, doc.data());
+        tableBody.appendChild(row);
+    });
 }
 
+function createRideRow(docId, data) {
+    const tr = document.createElement('tr');
+    
+    const homeLocation = `${data.homeCity}, ${data.homeState} ${data.homeZip}`;
+    const workLocation = `${data.workCity}, ${data.workState} ${data.workZip}`;
 
-    // const firebase_doc = {
-    //     homeCoordinates: {
-    //         lat: homeCoordinates.lat,
-    //         lng: homeCoordinates.lng
-    //     },
-    //     workCoordinates: {
-    //         lat: workCoordinates.lat,
-    //         lng: workCoordinates.lng
-    //     },
-    //     currentPassenger: 0, // will need to update this as passengers are added
-    //     passengerCapacity: passengerCapacity
-    // };
-function createRideDiv(firebaseDocData) {
-    let singleRideDiv = document.createElement('div');
-    singleRideDiv.classList.add("Rides-ride");
-    singleRideDiv.innerHTML = 
-        `   <div class="Ride-details">
-                <strong>Home:</strong> ${firebaseDocData.homeCoordinates.lat}, ${firebaseDocData.homeCoordinates.lng}<br>
-                <strong>Work:</strong> ${firebaseDocData.workCoordinates.lat}, ${firebaseDocData.workCoordinates.lng}<br>
-            </div>`;
-    return singleRideDiv;
+    tr.innerHTML = `
+        <td>${homeLocation}</td>
+        <td>${workLocation}</td>
+        <td>1 / ${data.passengerCapacity}</td>
+    `;
+    
+    return tr;
 }
-
      
 document.getElementById("load-route-button").addEventListener("click", fetchRoutesFromFirebaseAndRender);
-fetchRoutesFromFirebaseAndRender();
+// fetchRoutesFromFirebaseAndRender();
