@@ -23,13 +23,20 @@ async function fetchRoutesFromFirebaseAndRender() {
 function createRideRow(docId, data) {
     const tr = document.createElement('tr');
     
-    const homeLocation = `${data.homeCity}, ${data.homeState} ${data.homeZip}`;
-    const workLocation = `${data.workCity}, ${data.workState} ${data.workZip}`;
+    const homeLocation = (data.homeCity && data.homeState) 
+        ? `${data.homeCity}, ${data.homeState} ${data.homeZip || ''}` 
+        : "Home location information unavailable";
+    
+    const workLocation = (data.workCity && data.workState) 
+        ? `${data.workCity}, ${data.workState} ${data.workZip || ''}` 
+        : "Work location information unavailable";
+
+    const passengerCap = data.passengerCapacity || 4;
 
     tr.innerHTML = `
         <td>${homeLocation}</td>
         <td>${workLocation}</td>
-        <td>1 / ${data.passengerCapacity}</td>
+        <td>1 / ${passengerCap}</td>
     `;
     
     return tr;
