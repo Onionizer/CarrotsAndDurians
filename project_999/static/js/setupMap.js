@@ -20,16 +20,35 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 async function textAddressToLatLong(address) {
     console.log("Converting address to latitude & longitude:", address);
     const URL = `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(address)}`;
+    const errorDiv = document.getElementById("address-error");
 
     try {
         const response = await fetch(URL);
         const data = await response.json();
         console.log("Received loc data:", data, "for address:", address);
 
-        // maybe check if address exists? 
+        if (data.length === 0) {
+            if (errorDiv) {
+                errorDiv.textContent = `Could not find location with OpenStreetMap: ${address}. Try a different address!`;
+                errorDiv.style.display = "block";
+            }
+            return null;
+        }
+
+        // Clear error on success
+        if (errorDiv) {
+            errorDiv.style.display = "none";
+            errorDiv.textContent = "";
+        }
+
         return L.latLng(data[0].lat, data[0].lon);
     } catch (error) {
         console.error("Error converting address to lat/long:", error);
+        if (errorDiv) {
+            errorDiv.textContent = "An error occurred while looking up the address. Please try again later.";
+            errorDiv.style.display = "block";
+        }
+        return null;
     }
 }
 
