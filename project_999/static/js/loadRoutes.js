@@ -25,11 +25,11 @@ function createRideRow(docId, data) {
     
     const homeLocation = (data.homeCity && data.homeState) 
         ? `${data.homeCity}, ${data.homeState} ${data.homeZip || ''}` 
-        : "Home location information unavailable";
+        : "Home city & state information unavailable";
     
     const workLocation = (data.workCity && data.workState) 
         ? `${data.workCity}, ${data.workState} ${data.workZip || ''}` 
-        : "Work location information unavailable";
+        : "Work city & state information unavailable";
 
     const passengerCap = data.passengerCapacity || 4;
 
