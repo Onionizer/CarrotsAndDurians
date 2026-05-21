@@ -102,7 +102,7 @@ if (!db) {
 }
 
 
-async function persistRouteToFirebase(homeCoordinates, workCoordinates, passengerCapacity, homeCity, homeState, workCity, workState) {
+async function persistRouteToFirebase(homeCoordinates, workCoordinates, passengerCapacity, homeCity, homeState, homeZip, workCity, workState, workZip) {
     console.log("Persisting route data to Firebase . . .");
 
     const firebase_doc = {
@@ -116,8 +116,10 @@ async function persistRouteToFirebase(homeCoordinates, workCoordinates, passenge
         },
         homeCity: homeCity,
         homeState: homeState,
+        homeZip: homeZip,
         workCity: workCity,
         workState: workState,
+        workZip: workZip,
         currentPassenger: 0, 
         passengerCapacity: passengerCapacity
     };
@@ -146,11 +148,13 @@ async function calculateAndDisplayRoute() {
     const workCoordinates = await getWorkAddress();
     console.log("Work address lat/long:", workCoordinates);
 
-    // Get city and state for persistence
+    // Get city, state, and zip for persistence
     const homeCity = document.getElementById("home-city").value;
     const homeState = document.getElementById("home-state").value;
+    const homeZip = document.getElementById("home-zip-code").value;
     const workCity = document.getElementById("work-city").value;
     const workState = document.getElementById("work-state").value;
+    const workZip = document.getElementById("work-zip-code").value;
 
     try {
         // Need to remove old route
@@ -173,7 +177,7 @@ async function calculateAndDisplayRoute() {
         }).addTo(map);
 
         let passengerCapacity = getPassengerCapacity();
-        persistRouteToFirebase(homeCoordinates, workCoordinates, passengerCapacity, homeCity, homeState, workCity, workState);
+        persistRouteToFirebase(homeCoordinates, workCoordinates, passengerCapacity, homeCity, homeState, homeZip, workCity, workState, workZip);
     } catch (error) {
         console.error("Error calculating/displaying route:", error);
     }
