@@ -7,14 +7,18 @@ if (!firebase.apps.length) {
 const db = firebase.firestore();
 
 async function updateRouteCount() {
+    console.log("Fetching ")
+
     const routeCountElement = document.getElementById("route-count");
     if (!routeCountElement) {
+        console.log("???? where is this");
         return;
     }
 
     try {
         const querySnapshot = await db.collection(FIREBASE_PROTOTYPE_NO_AUTH_COLLECTION).get();
         routeCountElement.textContent = querySnapshot.size;
+        console.log("Updated route-count!");
     } catch (error) {
         console.error("Error fetching route count:", error);
         routeCountElement.textContent = "0";
