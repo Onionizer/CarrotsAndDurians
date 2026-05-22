@@ -20,6 +20,8 @@
 
     <script type="text/babel" src="static/js/Navbar.js"></script>
 
+    <!-- Eveventually display something like -->
+    <!-- There are X active members, Y completed routes/miles, Z carbon emission saved, etc  -->
     <script type="text/babel">
         const rootElement = document.getElementById('root');
         const root = ReactDOM.createRoot(rootElement);
@@ -34,6 +36,12 @@
                             <h1 className="title">Welcome to Carpool Connector!</h1>
                             <p className="subtitle">Your one-stop (or no-stop) solution for a smooth ride!</p>
                             
+                            <div className="notification is-primary is-light">
+                                <p className="is-size-4 has-text-centered">
+                                    Join our growing community! There are currently <strong id="route-count">loading...</strong> active routes available.
+                                </p>
+                            </div>
+
                             <hr />
 
                             <div className="columns">

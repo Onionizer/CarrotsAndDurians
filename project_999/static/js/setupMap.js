@@ -205,5 +205,22 @@ async function calculateAndDisplayRoute() {
     }
 }
 
-document.getElementById("show-route-button").addEventListener("click", calculateAndDisplayRoute);
+async function updateRouteCount() {
+    const routeCountElement = document.getElementById("route-count");
+    if (!routeCountElement) {
+        console.log("this better not be the index page");
+        return;
+    }
+
+    try {
+        const querySnapshot = await db.collection(FIREBASE_PROTOTYPE_NO_AUTH_COLLECTION).get();
+        routeCountElement.textContent = querySnapshot.size;
+    } catch (error) {
+        console.error("Error fetching route count:", error);
+        routeCountElement.textContent = "0";
+    }
+}
+updateRouteCount();
+
+document.getElementById("show-route-button")?.addEventListener("click", calculateAndDisplayRoute);
 // calculateAndDisplayRoute();
