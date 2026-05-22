@@ -42,8 +42,6 @@
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    
-    </style>
 </head>
 <body>
 
@@ -67,124 +65,128 @@
     </script>
 
     <!--  h1 ~ h6 maps to is-1 ~ is-6 in Bulma  -->
-    <div class="Address-container columns">
-        <section class="address-card column card">
-            <h2 class="is-2 has-text-centered">Personal Information</h2>
-            <div class="Address-field">
-                <div class="field is-grouped">
-                    <div class="control">   
-                        <label class="label" for="first-name">First Name</label>
-                        <input class="input" type="text" id="first-name" name="first-name" placeholder="John">
+    <div class="container">
+        <!-- Row 1: Personal and Driver Information (to be supported later) -->
+        <div class="Address-container columns is-multiline">
+            <section class="address-card column is-half card">
+                <h2 class="is-2 has-text-centered">Personal Information (to be supported)</h2>
+                <div class="Address-field">
+                    <div class="field is-grouped">
+                        <div class="control is-expanded">   
+                            <label class="label" for="first-name">First Name</label>
+                            <input class="input" type="text" id="first-name" name="first-name" placeholder="John">
+                        </div>
+                        <div class="control is-expanded">
+                            <label class="label" for="last-name">Last Name</label>
+                            <input class="input" type="text" id="last-name" name="last-name" placeholder="Doe">
+                        </div>
                     </div>
-                    <div class="control">
-                        <label class="label" for="last-name">State</label>
-                        <input class="input" type="text" id="last-name" name="last-name" placeholder="Doe">
-                    </div>
-                </div>
 
-                <div class="field">
-                    <label class="label" for="email">Email</label>
-                    <div class="control">
-                        <input class="input" type="email" id="email" name="email" placeholder="johndoe@berkeley.edu">
+                    <div class="field">
+                        <label class="label" for="email">Email</label>
+                        <div class="control">
+                            <input class="input" type="email" id="email" name="email" placeholder="johndoe@berkeley.edu">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="phone">Phone Number</label>
+                        <div class="control">
+                            <input class="input" type="tel" id="phone" name="phone" placeholder="(123) 456-7890">
+                        </div>
                     </div>
                 </div>
-                <div class="field">
-                    <label class="label" for="phone">Phone Number</label>
-                    <div class="control">
-                        <input class="input" type="tel" id="phone" name="phone" placeholder="(123) 456-7890">
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="address-card column card">
-            <h2 class="is-2 has-text-centered">Home</h2>
-    
-            <div class="Address-field">
-                <div class="field">
-                    <label class="label" for="home-street-address">Street Address</label>
-                    <div class="control">
-                        <input class="input" type="text" id="home-street-address" name="home-street-address" placeholder="110 Sproul Hall">
+            <section class="address-card column is-half card">
+                <h2 class="is-2 has-text-centered">Driver Info (to be supported)</h2>
+
+                <div class="Address-field">
+                    <div class="field">
+                        <label class="label" for="vehicle-make">Vehicle Make & Model</label>
+                        <div class="control">
+                            <input class="input" type="text" id="vehicle-make" name="vehicle-make" placeholder="Hyundai Sonata">
+                        </div>
+                    </div>
+                    
+                    <div class="field is-grouped">
+                        <div class="control is-expanded">   
+                            <label class="label" for="vehicle-color">Color</label>
+                            <input class="input" type="text" id="vehicle-color" name="vehicle-color" placeholder="Silver">
+                        </div>
+                        <div class="control is-expanded">
+                            <label class="label" for="license-plate">License Plate</label>
+                            <input class="input" type="text" id="license-plate" name="license-plate" placeholder="7ABC1234">
+                        </div>
+                    </div>
+
+                    <div class="field is-grouped is-align-items-center">
+                        <div class="control">
+                            <label class="label" for="passenger-capacity">Passenger Capacity</label>
+                        </div>
+                        <div class="control">
+                            <input class="input" type="number" id="passenger-capacity" name="passenger-capacity" placeholder="4">
+                        </div>
                     </div>
                 </div>
-                
-                <div class="field is-grouped">
-                    <div class="control is-expanded">   
-                        <label class="label" for="home-city">City</label>
-                        <input class="input" type="text" id="home-city" name="home-city" placeholder="Berkeley">
-                    </div>
-                    <div class="control">
-                        <label class="label" for="home-state">State</label>
-                        <input class="input" type="text" id="home-state" name="home-state" placeholder="CA">
-                    </div>
-                    <div class="control">
-                        <label class="label" for="home-zip-code">Zip Code</label>
-                        <input class="input" type="text" id="home-zip-code" name="home-zip-code" placeholder="94720">
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
+
+            <!-- Row 2: Home and Work Addresses -->
+            <section class="address-card column is-half card">
+                <h2 class="is-2 has-text-centered">Home</h2>
         
-        <section class="address-card column card">
-            <h2 class="is-2 has-text-centered">Work</h2>
+                <div class="Address-field">
+                    <div class="field">
+                        <label class="label" for="home-street-address">Street Address</label>
+                        <div class="control">
+                            <input class="input" type="text" id="home-street-address" name="home-street-address" placeholder="110 Sproul Hall">
+                        </div>
+                    </div>
+                    
+                    <div class="field is-grouped">
+                        <div class="control is-expanded">   
+                            <label class="label" for="home-city">City</label>
+                            <input class="input" type="text" id="home-city" name="home-city" placeholder="Berkeley">
+                        </div>
+                        <div class="control">
+                            <label class="label" for="home-state">State</label>
+                            <input class="input" type="text" id="home-state" name="home-state" placeholder="CA">
+                        </div>
+                        <div class="control">
+                            <label class="label" for="home-zip-code">Zip Code</label>
+                            <input class="input" type="text" id="home-zip-code" name="home-zip-code" placeholder="94720">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="address-card column is-half card">
+                <h2 class="is-2 has-text-centered">Work</h2>
 
-            <div class="Address-field">
-                <div class="field">
-                    <label class="label" for="work-street-address">Street Address</label>
-                    <div class="control">
-                        <input class="input" type="text" id="work-street-address" name="work-street-address" placeholder="123 B Street">
+                <div class="Address-field">
+                    <div class="field">
+                        <label class="label" for="work-street-address">Street Address</label>
+                        <div class="control">
+                            <input class="input" type="text" id="work-street-address" name="work-street-address" placeholder="123 B Street">
+                        </div>
+                    </div>
+                    
+                    <div class="field is-grouped">
+                        <div class="control is-expanded">   
+                            <label class="label" for="work-city">City</label>
+                            <input class="input" type="text" id="work-city" name="work-city" placeholder="Redwood City">
+                        </div>
+                        <div class="control">
+                            <label class="label" for="work-state">State</label>
+                            <input class="input" type="text" id="work-state" name="work-state" placeholder="CA">
+                        </div>
+                        <div class="control">
+                            <label class="label" for="work-zip-code">Zip Code</label>
+                            <input class="input" type="text" id="work-zip-code" name="work-zip-code" placeholder="94063">
+                        </div>
                     </div>
                 </div>
-                
-                <div class="field is-grouped">
-                    <div class="control is-expanded">   
-                        <label class="label" for="work-city">City</label>
-                        <input class="input" type="text" id="work-city" name="work-city" placeholder="Redwood City">
-                    </div>
-                    <div class="control">
-                        <label class="label" for="work-state">State</label>
-                        <input class="input" type="text" id="work-state" name="work-state" placeholder="CA">
-                    </div>
-                    <div class="control">
-                        <label class="label" for="work-zip-code">Zip Code</label>
-                        <input class="input" type="text" id="work-zip-code" name="work-zip-code" placeholder="94063">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="address-card column card">
-            <h2 class="is-2 has-text-centered">Driver Info</h2>
-
-            <div class="Address-field">
-                <div class="field">
-                    <label class="label" for="vehicle-make">Vehicle Make & Model</label>
-                    <div class="control">
-                        <input class="input" type="text" id="vehicle-make" name="vehicle-make" placeholder="Hyundai Sonata">
-                    </div>
-                </div>
-                
-                <div class="field is-grouped">
-                    <div class="control is-expanded">   
-                        <label class="label" for="vehicle-color">Color</label>
-                        <input class="input" type="text" id="vehicle-color" name="vehicle-color" placeholder="Silver">
-                    </div>
-                    <div class="control is-expanded">
-                        <label class="label" for="license-plate">License Plate</label>
-                        <input class="input" type="text" id="license-plate" name="license-plate" placeholder="7ABC1234">
-                    </div>
-                </div>
-
-                <div class="field is-grouped is-align-items-center">
-                    <div class="control">
-                        <label class="label" for="passenger-capacity">Passenger Capacity</label>
-                    </div>
-                    <div class="control">
-                        <input class="input" type="number" id="passenger-capacity" name="passenger-capacity" placeholder="3">
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </div>
 
     <!-- Map and buttons? -->
