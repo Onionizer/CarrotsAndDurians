@@ -7,7 +7,7 @@ if (!firebase.apps.length) {
 const db = firebase.firestore();
 
 async function updateRouteCount() {
-    console.log("Fetching ")
+    console.log("Fetching count . . .");
 
     const routeCountElement = document.getElementById("route-count");
     if (!routeCountElement) {
